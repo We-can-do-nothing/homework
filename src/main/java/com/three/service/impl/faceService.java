@@ -2,6 +2,7 @@ package com.three.service.impl;
 
 import com.three.service.faceServiceInterface;
 import com.baidu.aip.face.AipFace;
+import org.json.JSONArray;
 import org.json.JSONObject;
 import org.springframework.stereotype.Service;
 
@@ -18,19 +19,23 @@ public class faceService implements faceServiceInterface {
     final AipFace client = new AipFace(APP_ID, API_KEY, SECRET_KEY);
 
     @Override
-    public boolean faceVerify(String base64) {
+    public int faceVerify(String base64) {
         String groupIdList = "hrm"; // 百度人脸库名称
 
         JSONObject res = client.search(base64, "BASE64", groupIdList,null);
 
-        if(res.get("error_code").toString().equals("0"))
-            return true;
+        if(res.get("error_code").toString().equals("0")){
+            JSONObject result = (JSONObject)res.get("result");
+            JSONArray userList = (JSONArray) result.get("user_list");
+            JSONObject userList01 = (JSONObject)userList.get(0);
+            return Integer.parseInt((String) userList01.get("user_id"));
+        }
         else
-            return false;
+            return -1;
     }
 
     @Override
-    public boolean faceRegister(String base64) {
+    public boolean faceRegister(String base64, Integer userId) {
         HashMap<String, String> options = new HashMap<String, String>();
 
         //图片质量 NONE: 不进行控制 LOW:较低的质量要求 NORMAL: 一般的质量要求 HIGH: 较高的质量要求 默认 NONE
@@ -42,10 +47,7 @@ public class faceService implements faceServiceInterface {
         //百度人脸库名称
         String groupId = "hrm";
 
-        //用户ID（随便取）
-        String userId = "8";
-
-        JSONObject res = client.addUser(base64, "BASE64", groupId, userId, options);
+        JSONObject res = client.addUser(base64, "BASE64", groupId, userId.toString(), options);
 
         if(res.get("error_code").toString().equals("0"))
             return true;

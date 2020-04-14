@@ -14,8 +14,16 @@ public class loginService implements loginServiceInterface {
 
     @Override
     public User findByName(String name) {
-        if (userMapper == null)
-            System.out.println("null");
         return userMapper.findByName(name);
+    }
+
+    @Override
+    public void updatePasswordById(Integer id, String newPassword) {
+        userMapper.updatePasswordById(id, newPassword);
+    }
+
+    @Override
+    public User findById(int userId) {
+        return userMapper.findById(userId);
     }
 }

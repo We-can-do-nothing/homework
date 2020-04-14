@@ -20,17 +20,6 @@ public class User implements Serializable {
     private String Faceurl;
     private String Facepath;
 
-    public User(Integer job_id, String loginname, String password, Integer status, Date createdate, String userName, String faceurl, String facepath) {
-        Job_id = job_id;
-        Loginname = loginname;
-        this.password = password;
-        Status = status;
-        Createdate = createdate;
-        UserName = userName;
-        Faceurl = faceurl;
-        Facepath = facepath;
-    }
-
     public Integer getUser_id() {
         return user_id;
     }

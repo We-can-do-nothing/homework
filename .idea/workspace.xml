@@ -1,8 +1,30 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="e1dbf925-dd96-457d-a4fc-7e9745a60541" name="Default Changelist" comment="" />
-    <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
+    <list default="true" id="e1dbf925-dd96-457d-a4fc-7e9745a60541" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/encodings.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/encodings.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/three/bean/User.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/three/bean/User.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/three/bean/editPassword.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/three/bean/editPassword.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/three/common/addUtils.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/three/common/addUtils.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/three/control/loginControl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/three/control/loginControl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/three/control/mainControl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/three/control/mainControl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/three/control/userControl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/three/control/userControl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/three/mapper/UserMapperInterface.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/three/mapper/UserMapperInterface.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/three/service/faceServiceInterface.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/three/service/faceServiceInterface.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/three/service/impl/faceService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/three/service/impl/faceService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/three/service/impl/loginService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/three/service/impl/loginService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/three/service/impl/userService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/three/service/impl/userService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/three/service/loginServiceInterface.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/three/service/loginServiceInterface.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/three/service/userServiceInterface.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/three/service/userServiceInterface.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/application.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/editPassword/editPassword.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/editPassword/editPassword.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/main.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/main.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/user/showAddUser.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/user/showAddUser.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/user/showUpdateUser.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/user/showUpdateUser.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/user/user.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/user/user.html" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -17,6 +39,9 @@
       </list>
     </option>
   </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
   <component name="MavenImportPreferences">
     <option name="generalSettings">
       <MavenGeneralSettings>
@@ -24,26 +49,30 @@
         <option name="userSettingsFile" value="E:\apache-maven-3.6.3-bin\apache-maven-3.6.3\conf\settings.xml" />
       </MavenGeneralSettings>
     </option>
-    <option name="importingSettings">
-      <MavenImportingSettings>
-        <option name="importAutomatically" value="true" />
-      </MavenImportingSettings>
-    </option>
   </component>
   <component name="ProjectId" id="1aRHoNXmJNaNAteaMY2XECLWckM" />
+  <component name="ProjectLevelVcsManager">
+    <ConfirmationsSetting value="1" id="Add" />
+  </component>
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
   <component name="PropertiesComponent">
     <property name="RequestMappingsPanelOrder0" value="0" />
     <property name="RequestMappingsPanelOrder1" value="1" />
     <property name="RequestMappingsPanelWidth0" value="75" />
     <property name="RequestMappingsPanelWidth1" value="75" />
+    <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
     <property name="com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrary" value="JUnit5" />
     <property name="com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrarySuperClass.JUnit5" value="" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="project.structure.last.edited" value="Project" />
     <property name="project.structure.proportion" value="0.0" />
     <property name="project.structure.side.proportion" value="0.0" />
-    <property name="settings.editor.selected.configurable" value="preferences.pluginManager" />
+    <property name="settings.editor.selected.configurable" value="editor.preferences.fonts.default" />
   </component>
   <component name="RecentsManager">
     <key name="CreateTestDialog.RecentsKey">
@@ -52,20 +81,24 @@
     <key name="CreateTestDialog.Recents.Supers">
       <recent name="" />
     </key>
-  </component>
-  <component name="RunDashboard">
-    <option name="ruleStates">
-      <list>
-        <RuleState>
-          <option name="name" value="ConfigurationTypeDashboardGroupingRule" />
-        </RuleState>
-        <RuleState>
-          <option name="name" value="StatusDashboardGroupingRule" />
-        </RuleState>
-      </list>
-    </option>
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\16834\Desktop\exerciseOneFiles\secondHomework\src\main\resources\templates" />
+    </key>
   </component>
   <component name="RunManager" selected="Spring Boot.secondHomework">
+    <configuration name="splitTest" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="com.three.otherTset.splitTest" />
+      <module name="secondHomework" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.three.otherTset.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <configuration name="UserMapperTest.findByName" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="secondHomework" />
       <extension name="coverage">
@@ -91,13 +124,22 @@
         </pattern>
       </extension>
       <option name="SPRING_BOOT_MAIN_CLASS" value="com.three.secondHomework" />
+      <option name="ALTERNATIVE_JRE_PATH" />
+      <option name="UPDATE_ACTION_UPDATE_POLICY" value="UpdateClassesAndResources" />
+      <option name="FRAME_DEACTIVATION_UPDATE_POLICY" value="UpdateClassesAndResources" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+    <list>
+      <item itemvalue="Application.splitTest" />
+      <item itemvalue="JUnit.UserMapperTest.findByName" />
+      <item itemvalue="Spring Boot.secondHomework" />
+    </list>
     <recent_temporary>
       <list>
         <item itemvalue="Spring Boot.secondHomework" />
+        <item itemvalue="Application.splitTest" />
         <item itemvalue="JUnit.UserMapperTest.findByName" />
       </list>
     </recent_temporary>
@@ -115,10 +157,74 @@
       <workItem from="1586691662894" duration="14186000" />
       <workItem from="1586742026229" duration="125000" />
       <workItem from="1586742173701" duration="4950000" />
+      <workItem from="1586761348380" duration="10093000" />
+      <workItem from="1586772593506" duration="109000" />
+      <workItem from="1586773076535" duration="1081000" />
+      <workItem from="1586777360942" duration="7689000" />
+      <workItem from="1586829817056" duration="274000" />
+      <workItem from="1586830236361" duration="185000" />
+      <workItem from="1586842343176" duration="15899000" />
+      <workItem from="1586858494904" duration="3490000" />
+      <workItem from="1586863278263" duration="22000" />
+      <workItem from="1586867815863" duration="2738000" />
     </task>
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
-    <option name="version" value="1" />
+    <option name="version" value="2" />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
+    <option name="oldMeFiltersMigrated" value="true" />
+  </component>
+  <component name="WindowStateProjectService">
+    <state x="765" y="229" key="#com.intellij.ide.util.MemberChooser" timestamp="1586869848328">
+      <screen x="0" y="0" width="1920" height="1048" />
+    </state>
+    <state x="765" y="229" key="#com.intellij.ide.util.MemberChooser/0.0.1920.1048@0.0.1920.1048" timestamp="1586869848328" />
+    <state width="1877" height="217" key="GridCell.Tab.0.bottom" timestamp="1586870234620">
+      <screen x="0" y="0" width="1920" height="1048" />
+    </state>
+    <state width="1877" height="217" key="GridCell.Tab.0.bottom/0.0.1920.1048@0.0.1920.1048" timestamp="1586870234620" />
+    <state width="1877" height="217" key="GridCell.Tab.0.center" timestamp="1586870234620">
+      <screen x="0" y="0" width="1920" height="1048" />
+    </state>
+    <state width="1877" height="217" key="GridCell.Tab.0.center/0.0.1920.1048@0.0.1920.1048" timestamp="1586870234620" />
+    <state width="1877" height="217" key="GridCell.Tab.0.left" timestamp="1586870234620">
+      <screen x="0" y="0" width="1920" height="1048" />
+    </state>
+    <state width="1877" height="217" key="GridCell.Tab.0.left/0.0.1920.1048@0.0.1920.1048" timestamp="1586870234620" />
+    <state width="1877" height="217" key="GridCell.Tab.0.right" timestamp="1586870234620">
+      <screen x="0" y="0" width="1920" height="1048" />
+    </state>
+    <state width="1877" height="217" key="GridCell.Tab.0.right/0.0.1920.1048@0.0.1920.1048" timestamp="1586870234620" />
+    <state width="1877" height="217" key="GridCell.Tab.1.bottom" timestamp="1586870234621">
+      <screen x="0" y="0" width="1920" height="1048" />
+    </state>
+    <state width="1877" height="217" key="GridCell.Tab.1.bottom/0.0.1920.1048@0.0.1920.1048" timestamp="1586870234621" />
+    <state width="1877" height="217" key="GridCell.Tab.1.center" timestamp="1586870234620">
+      <screen x="0" y="0" width="1920" height="1048" />
+    </state>
+    <state width="1877" height="217" key="GridCell.Tab.1.center/0.0.1920.1048@0.0.1920.1048" timestamp="1586870234620" />
+    <state width="1877" height="217" key="GridCell.Tab.1.left" timestamp="1586870234620">
+      <screen x="0" y="0" width="1920" height="1048" />
+    </state>
+    <state width="1877" height="217" key="GridCell.Tab.1.left/0.0.1920.1048@0.0.1920.1048" timestamp="1586870234620" />
+    <state width="1877" height="217" key="GridCell.Tab.1.right" timestamp="1586870234621">
+      <screen x="0" y="0" width="1920" height="1048" />
+    </state>
+    <state width="1877" height="217" key="GridCell.Tab.1.right/0.0.1920.1048@0.0.1920.1048" timestamp="1586870234621" />
+    <state x="485" y="247" key="SettingsEditor" timestamp="1586868436445">
+      <screen x="0" y="0" width="1920" height="1048" />
+    </state>
+    <state x="485" y="247" key="SettingsEditor/0.0.1920.1048@0.0.1920.1048" timestamp="1586868436445" />
   </component>
 </project>

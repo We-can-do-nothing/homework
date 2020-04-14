@@ -21,7 +21,7 @@
 	<script type="text/javascript">
 	
 function submit(){
-		$("#status").val($("#sta").val());
+		// $("#status").val($("#sta").val());
     	/** 员工表单提交 */
 		
 			var username = $("#username");
@@ -43,9 +43,22 @@ function submit(){
 				$.ligerDialog.error(msg);
 				return false;
 			}else{
-				return true;
+				var id = document.getElementById("sta");
+				var data = id.value + ":" + username.val() + ":" + status.val().trim() + ":" + loginname.val().trim();
+				$.ajax({
+					type:"post",
+					url:"/user/updateUser",
+					data:data,
+					contentType: "application/json;charset=UTF-8",
+					dataType:"json",
+					error: function (XMLHttpRequest, textStatus, errorThrown) {
+						$.ligerDialog.error("出错了，请于管理员联系");
+					},
+					success:function(json){ // 此处的json是返回的数据
+						$.ligerDialog.alert("修改成功");
+					}
+				});
 			}
-			//$("#userForm").submit();
 	
 }
 		
@@ -72,21 +85,21 @@ function submit(){
 		    <tr><td class="font3 fftd">
 		    	<table>
 		    		<tr>
-		    			<td class="font3 fftd">姓名：<input type="text" name="username" id="username" size="20" value="wangxh"/></td>
+		    			<td class="font3 fftd">姓名：<input type="text" name="username" id="username" size="20" th:value="${user.UserName}"/></td>
 		    			<td class="font3 fftd">状态：
 		    				<select name="status" id="status" >
 								  <option value ="1">管理员</option>
-								  <option value ="2">普通用户</option>
+								  <option value ="2" th:selected = "${user.Status}==2? 'selected'">普通用户</option>
 
 							</select>
-							<input type="hidden" name="sta" id="sta"  value="wangxh"/>
+							<input type="hidden" name="sta" id="sta"  th:value="${user.user_id}" />
 							</td>
 							
 		    		</tr>
 		    			
 		    		<tr>
 		    			<td class="font3 fftd">登录名：
-		    			<input name="loginname" id="loginname" size="20" value="wangxh"/>
+		    			<input name="loginname" id="loginname" size="20" th:value="${user.Loginname}"/>
 		    			<input type="hidden" name="password" id="password" size="20" value="songyq"/>
 		    			</td>
 		    			

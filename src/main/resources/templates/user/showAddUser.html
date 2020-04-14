@@ -24,20 +24,20 @@
 
     	/** 员工表单提交 */
 		function submit(){
-			var username = $("#username");
-			var status = $("#status");
-			var loginname = $("#loginname");
+			var UserName = $("#username");
+			var Status = $("#status");
+			var Loginname = $("#loginname");
 			var password = $("#password");
 			var msg = "";
-			if ($.trim(username.val()) == ""){
+			if ($.trim(UserName.val()) == ""){
 				msg = "姓名不能为空！";
-				username.focus();
-			}else if ($.trim(loginname.val()) == ""){
+				UserName.focus();
+			}else if ($.trim(Loginname.val()) == ""){
 				msg = "登录名不能为空！";
-				loginname.focus();
-			}else if($.trim(loginname.val()).length<6 || $.trim(loginname.val()).length>20){
+				Loginname.focus();
+			}else if($.trim(Loginname.val()).length<6 || $.trim(Loginname.val()).length>20){
 				msg = "登录名需要大于6位小于20位！";
-				loginname.focus();
+				Loginname.focus();
 			}else if ($.trim(password.val()) == ""){
 				msg = "密码不能为空！";
 				password.focus();
@@ -46,9 +46,22 @@
 				$.ligerDialog.error(msg);
 				return false;
 			}else{
-				return true;
+				var userData = UserName.val().trim() + ":" + Loginname.val().trim() +":" + password.val().trim() + ":" + Status.val().trim();
+				$.ajax({
+					type: "POST",
+					url: "/user/addUser",
+					traditional: true,
+					data:userData,
+					dataType: "json",
+					contentType: "application/json;charset=UTF-8",
+					error: function (XMLHttpRequest, textStatus, errorThrown) {
+						alert("消息","出错了，请于管理员联系");
+					},
+					success: function (json) {
+						$.ligerDialog.alert("注册成功");
+					}
+				});
 			}
-			//$("#userForm").submit();
 		}
  
 		
@@ -104,12 +117,8 @@
 			<td align="left" class="fftd">
 			<input type="button" onclick="submit()" value="添加">&nbsp;&nbsp;
 			<input type="reset" value="取消 ">&nbsp;&nbsp;
-			
-			
 			</td>
-			
-				
-			
+
 			</tr>
 		  </table>
 		

@@ -1,4 +1,3 @@
-
 <!DOCTYPE HTML>
 <html>
 
@@ -57,13 +56,15 @@
 			<ul class="nav navbar-nav navbar-right">
 				<li>
 					<a>
-						<span class="user-name-csdc">欢迎登录：sjm</span> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+						<input hidden th:value="${user_id}" id = "user_id"/>
+						<span class="user-name-csdc" >欢迎登录：</span>
+						<span class="user-name-csdc" th:text="${LoginName}"></span>
 						<img src="images/StatBar_time.gif">&nbsp;&nbsp;<span id="nowTime"></span>
 					</a>
 				</li>
 		
 				<li>
-					<a class="menu-icons" title="修改密码" data-search-open="" data-title="修改密码" modal-toggle="modal" data-href="editPassword/editPassword.html" data-width="780" data-height="300">
+					<a class="menu-icons" title="修改密码" data-search-open="" data-title="修改密码" modal-toggle="modal" th:data-href="'editPassword/editPassword.html?user_id=' + ${user_id}" data-width="780" data-height="300">
 						<em class="fa fa-gear main-op" style="font-size:13px">修改密码</em>
 					</a>
 				</li>
