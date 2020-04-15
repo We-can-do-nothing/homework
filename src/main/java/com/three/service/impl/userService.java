@@ -35,6 +35,11 @@ public class userService implements userServiceInterface {
     }
 
     @Override
+    public int getTotalByLS(Integer status, String loginName) {
+        return userMapper.getTotalByLS(status, loginName);
+    }
+
+    @Override
     public User findById(Integer id) {
         return userMapper.findById(id);
     }
@@ -47,5 +52,10 @@ public class userService implements userServiceInterface {
     @Override
     public void deleteById(Integer id) {
         userMapper.deleteById(id);
+    }
+
+    @Override
+    public List<User> queryByUserNameAndStatus(String UserName, Integer status, int startrow, int num) {
+        return userMapper.queryByUserNameAndStatus(UserName, status, startrow, num);
     }
 }

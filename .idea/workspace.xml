@@ -1,28 +1,37 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
+  <component name="BranchesTreeState">
+    <expand>
+      <path>
+        <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="LOCAL_ROOT" type="e8cecc67:BranchNodeDescriptor" />
+      </path>
+      <path>
+        <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="REMOTE_ROOT" type="e8cecc67:BranchNodeDescriptor" />
+      </path>
+      <path>
+        <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="REMOTE_ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="GROUP_NODE:origin" type="e8cecc67:BranchNodeDescriptor" />
+      </path>
+    </expand>
+    <select />
+  </component>
   <component name="ChangeListManager">
     <list default="true" id="e1dbf925-dd96-457d-a4fc-7e9745a60541" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/encodings.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/encodings.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/three/mapper/UserProvider.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/three/bean/User.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/three/bean/User.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/three/bean/editPassword.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/three/bean/editPassword.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/three/common/addUtils.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/three/common/addUtils.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/three/control/loginControl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/three/control/loginControl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/three/control/mainControl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/three/control/mainControl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/three/control/userControl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/three/control/userControl.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/three/mapper/UserMapperInterface.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/three/mapper/UserMapperInterface.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/three/service/faceServiceInterface.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/three/service/faceServiceInterface.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/three/service/impl/faceService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/three/service/impl/faceService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/three/service/impl/loginService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/three/service/impl/loginService.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/three/service/impl/userService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/three/service/impl/userService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/three/service/loginServiceInterface.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/three/service/loginServiceInterface.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/three/service/userServiceInterface.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/three/service/userServiceInterface.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/application.properties" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/editPassword/editPassword.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/editPassword/editPassword.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/main.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/main.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/user/showAddUser.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/user/showAddUser.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/user/showUpdateUser.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/user/showUpdateUser.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/log4j.properties" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/log4j.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/static/js/metronic/plugins/app/menu.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/static/js/metronic/plugins/app/menu.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/static/js/metronic/plugins/layui/layui-config.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/static/js/metronic/plugins/layui/layui-config.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/pager.html" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/resources/templates/user/user.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/user/user.html" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -41,6 +50,9 @@
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="HighlightingSettingsPerFile">
+    <setting file="dummy://restClient/response1.html" root0="SKIP_INSPECTION" />
   </component>
   <component name="MavenImportPreferences">
     <option name="generalSettings">
@@ -72,6 +84,7 @@
     <property name="project.structure.last.edited" value="Project" />
     <property name="project.structure.proportion" value="0.0" />
     <property name="project.structure.side.proportion" value="0.0" />
+    <property name="restartRequiresConfirmation" value="false" />
     <property name="settings.editor.selected.configurable" value="editor.preferences.fonts.default" />
   </component>
   <component name="RecentsManager">
@@ -84,6 +97,172 @@
     <key name="CopyFile.RECENT_KEYS">
       <recent name="C:\Users\16834\Desktop\exerciseOneFiles\secondHomework\src\main\resources\templates" />
     </key>
+  </component>
+  <component name="RestClientSettings">
+    <option name="REQUEST_HISTORY">
+      <list>
+        <RestClientRequest>
+          <option name="httpMethod" value="POST" />
+          <option name="urlBase" value="http://localhost:8080/user/userSearch" />
+          <option name="urlPath" value="" />
+          <option name="headers">
+            <list>
+              <KeyValuePair>
+                <option name="key" value="Accept" />
+                <option name="value" value="*/*" />
+              </KeyValuePair>
+              <KeyValuePair>
+                <option name="key" value="Cache-Control" />
+                <option name="value" value="no-cache" />
+              </KeyValuePair>
+            </list>
+          </option>
+          <option name="parameters">
+            <list>
+              <KeyValuePair>
+                <option name="key" value="username" />
+                <option name="value" value="admin1" />
+              </KeyValuePair>
+              <KeyValuePair>
+                <option name="key" value="status" />
+                <option name="value" value="0" />
+              </KeyValuePair>
+            </list>
+          </option>
+          <option name="parametersEnabled" value="true" />
+          <option name="textToSend" value="" />
+          <option name="filesToSend" value="" />
+        </RestClientRequest>
+        <RestClientRequest>
+          <option name="httpMethod" value="POST" />
+          <option name="urlBase" value="http://localhost:8080/user/userSearch" />
+          <option name="urlPath" value="" />
+          <option name="headers">
+            <list>
+              <KeyValuePair>
+                <option name="key" value="Accept" />
+                <option name="value" value="*/*" />
+              </KeyValuePair>
+              <KeyValuePair>
+                <option name="key" value="Cache-Control" />
+                <option name="value" value="no-cache" />
+              </KeyValuePair>
+            </list>
+          </option>
+          <option name="parameters">
+            <list>
+              <KeyValuePair>
+                <option name="key" value="username" />
+                <option name="value" value="admin1" />
+              </KeyValuePair>
+              <KeyValuePair>
+                <option name="key" value="status" />
+                <option name="value" value="0?" />
+              </KeyValuePair>
+            </list>
+          </option>
+          <option name="parametersEnabled" value="true" />
+          <option name="textToSend" value="" />
+          <option name="filesToSend" value="" />
+        </RestClientRequest>
+        <RestClientRequest>
+          <option name="httpMethod" value="GET" />
+          <option name="urlBase" value="http://localhost:8080/user/userSearch" />
+          <option name="urlPath" value="" />
+          <option name="headers">
+            <list>
+              <KeyValuePair>
+                <option name="key" value="Accept" />
+                <option name="value" value="*/*" />
+              </KeyValuePair>
+              <KeyValuePair>
+                <option name="key" value="Cache-Control" />
+                <option name="value" value="no-cache" />
+              </KeyValuePair>
+            </list>
+          </option>
+          <option name="parameters">
+            <list>
+              <KeyValuePair>
+                <option name="key" value="username" />
+                <option name="value" value="admin1" />
+              </KeyValuePair>
+              <KeyValuePair>
+                <option name="key" value="status" />
+                <option name="value" value="0" />
+              </KeyValuePair>
+            </list>
+          </option>
+          <option name="parametersEnabled" value="true" />
+          <option name="textToSend" value="" />
+          <option name="filesToSend" value="" />
+        </RestClientRequest>
+        <RestClientRequest>
+          <option name="httpMethod" value="GET" />
+          <option name="urlBase" value="http://localhost:8080/user/userSearch" />
+          <option name="urlPath" value="" />
+          <option name="headers">
+            <list>
+              <KeyValuePair>
+                <option name="key" value="Accept" />
+                <option name="value" value="*/*" />
+              </KeyValuePair>
+              <KeyValuePair>
+                <option name="key" value="Cache-Control" />
+                <option name="value" value="no-cache" />
+              </KeyValuePair>
+            </list>
+          </option>
+          <option name="parameters">
+            <list>
+              <KeyValuePair>
+                <option name="key" value="username" />
+                <option name="value" value="abc" />
+              </KeyValuePair>
+              <KeyValuePair>
+                <option name="key" value="status" />
+                <option name="value" value="0" />
+              </KeyValuePair>
+            </list>
+          </option>
+          <option name="parametersEnabled" value="true" />
+          <option name="textToSend" value="" />
+          <option name="filesToSend" value="" />
+        </RestClientRequest>
+        <RestClientRequest>
+          <option name="httpMethod" value="GET" />
+          <option name="urlBase" value="http://localhost:8080" />
+          <option name="urlPath" value="/user/userSearch" />
+          <option name="headers">
+            <list>
+              <KeyValuePair>
+                <option name="key" value="Accept" />
+                <option name="value" value="*/*" />
+              </KeyValuePair>
+              <KeyValuePair>
+                <option name="key" value="Cache-Control" />
+                <option name="value" value="no-cache" />
+              </KeyValuePair>
+            </list>
+          </option>
+          <option name="parameters">
+            <list>
+              <KeyValuePair>
+                <option name="key" value="username" />
+                <option name="value" value="abc" />
+              </KeyValuePair>
+              <KeyValuePair>
+                <option name="key" value="status" />
+                <option name="value" value="0" />
+              </KeyValuePair>
+            </list>
+          </option>
+          <option name="parametersEnabled" value="true" />
+          <option name="textToSend" value="" />
+          <option name="filesToSend" value="" />
+        </RestClientRequest>
+      </list>
+    </option>
   </component>
   <component name="RunManager" selected="Spring Boot.secondHomework">
     <configuration name="splitTest" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
@@ -98,6 +277,12 @@
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
+    </configuration>
+    <configuration name="rest-api#1" type="HttpClient.HttpRequestRunConfigurationType" factoryName="HTTP Request" temporary="true" path="$APPLICATION_CONFIG_DIR$/scratches/rest-api.http" runType="Run single request">
+      <method v="2" />
+    </configuration>
+    <configuration name="rest-api_1#1" type="HttpClient.HttpRequestRunConfigurationType" factoryName="HTTP Request" temporary="true" path="$APPLICATION_CONFIG_DIR$/scratches/rest-api_1.http" runType="Run single request">
+      <method v="2" />
     </configuration>
     <configuration name="UserMapperTest.findByName" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="secondHomework" />
@@ -133,12 +318,16 @@
     </configuration>
     <list>
       <item itemvalue="Application.splitTest" />
+      <item itemvalue="HTTP Request.rest-api#1" />
+      <item itemvalue="HTTP Request.rest-api_1#1" />
       <item itemvalue="JUnit.UserMapperTest.findByName" />
       <item itemvalue="Spring Boot.secondHomework" />
     </list>
     <recent_temporary>
       <list>
         <item itemvalue="Spring Boot.secondHomework" />
+        <item itemvalue="HTTP Request.rest-api_1#1" />
+        <item itemvalue="HTTP Request.rest-api#1" />
         <item itemvalue="Application.splitTest" />
         <item itemvalue="JUnit.UserMapperTest.findByName" />
       </list>
@@ -166,8 +355,19 @@
       <workItem from="1586842343176" duration="15899000" />
       <workItem from="1586858494904" duration="3490000" />
       <workItem from="1586863278263" duration="22000" />
-      <workItem from="1586867815863" duration="2738000" />
+      <workItem from="1586867815863" duration="4291000" />
+      <workItem from="1586876018032" duration="101000" />
+      <workItem from="1586929150547" duration="10161000" />
+      <workItem from="1586942939282" duration="9784000" />
     </task>
+    <task id="LOCAL-00001" summary="添加删除用户功能">
+      <created>1586870707283</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1586870707283</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -185,46 +385,66 @@
     </option>
     <option name="oldMeFiltersMigrated" value="true" />
   </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="添加删除用户功能" />
+    <option name="LAST_COMMIT_MESSAGE" value="添加删除用户功能" />
+  </component>
   <component name="WindowStateProjectService">
-    <state x="765" y="229" key="#com.intellij.ide.util.MemberChooser" timestamp="1586869848328">
+    <state x="765" y="229" key="#com.intellij.ide.util.MemberChooser" timestamp="1586952201846">
       <screen x="0" y="0" width="1920" height="1048" />
     </state>
-    <state x="765" y="229" key="#com.intellij.ide.util.MemberChooser/0.0.1920.1048@0.0.1920.1048" timestamp="1586869848328" />
-    <state width="1877" height="217" key="GridCell.Tab.0.bottom" timestamp="1586870234620">
+    <state x="765" y="229" key="#com.intellij.ide.util.MemberChooser/0.0.1920.1048@0.0.1920.1048" timestamp="1586952201846" />
+    <state x="481" y="87" key="CommitChangelistDialog2" timestamp="1586870706095">
       <screen x="0" y="0" width="1920" height="1048" />
     </state>
-    <state width="1877" height="217" key="GridCell.Tab.0.bottom/0.0.1920.1048@0.0.1920.1048" timestamp="1586870234620" />
-    <state width="1877" height="217" key="GridCell.Tab.0.center" timestamp="1586870234620">
+    <state x="481" y="87" key="CommitChangelistDialog2/0.0.1920.1048@0.0.1920.1048" timestamp="1586870706095" />
+    <state width="1877" height="246" key="GridCell.Tab.0.bottom" timestamp="1586954489302">
       <screen x="0" y="0" width="1920" height="1048" />
     </state>
-    <state width="1877" height="217" key="GridCell.Tab.0.center/0.0.1920.1048@0.0.1920.1048" timestamp="1586870234620" />
-    <state width="1877" height="217" key="GridCell.Tab.0.left" timestamp="1586870234620">
+    <state width="1877" height="246" key="GridCell.Tab.0.bottom/0.0.1920.1048@0.0.1920.1048" timestamp="1586954489302" />
+    <state width="1877" height="246" key="GridCell.Tab.0.center" timestamp="1586954489302">
       <screen x="0" y="0" width="1920" height="1048" />
     </state>
-    <state width="1877" height="217" key="GridCell.Tab.0.left/0.0.1920.1048@0.0.1920.1048" timestamp="1586870234620" />
-    <state width="1877" height="217" key="GridCell.Tab.0.right" timestamp="1586870234620">
+    <state width="1877" height="246" key="GridCell.Tab.0.center/0.0.1920.1048@0.0.1920.1048" timestamp="1586954489302" />
+    <state width="1877" height="246" key="GridCell.Tab.0.left" timestamp="1586954489302">
       <screen x="0" y="0" width="1920" height="1048" />
     </state>
-    <state width="1877" height="217" key="GridCell.Tab.0.right/0.0.1920.1048@0.0.1920.1048" timestamp="1586870234620" />
-    <state width="1877" height="217" key="GridCell.Tab.1.bottom" timestamp="1586870234621">
+    <state width="1877" height="246" key="GridCell.Tab.0.left/0.0.1920.1048@0.0.1920.1048" timestamp="1586954489302" />
+    <state width="1877" height="246" key="GridCell.Tab.0.right" timestamp="1586954489302">
       <screen x="0" y="0" width="1920" height="1048" />
     </state>
-    <state width="1877" height="217" key="GridCell.Tab.1.bottom/0.0.1920.1048@0.0.1920.1048" timestamp="1586870234621" />
-    <state width="1877" height="217" key="GridCell.Tab.1.center" timestamp="1586870234620">
+    <state width="1877" height="246" key="GridCell.Tab.0.right/0.0.1920.1048@0.0.1920.1048" timestamp="1586954489302" />
+    <state width="1877" height="246" key="GridCell.Tab.1.bottom" timestamp="1586954489301">
       <screen x="0" y="0" width="1920" height="1048" />
     </state>
-    <state width="1877" height="217" key="GridCell.Tab.1.center/0.0.1920.1048@0.0.1920.1048" timestamp="1586870234620" />
-    <state width="1877" height="217" key="GridCell.Tab.1.left" timestamp="1586870234620">
+    <state width="1877" height="246" key="GridCell.Tab.1.bottom/0.0.1920.1048@0.0.1920.1048" timestamp="1586954489301" />
+    <state width="1877" height="246" key="GridCell.Tab.1.center" timestamp="1586954489300">
       <screen x="0" y="0" width="1920" height="1048" />
     </state>
-    <state width="1877" height="217" key="GridCell.Tab.1.left/0.0.1920.1048@0.0.1920.1048" timestamp="1586870234620" />
-    <state width="1877" height="217" key="GridCell.Tab.1.right" timestamp="1586870234621">
+    <state width="1877" height="246" key="GridCell.Tab.1.center/0.0.1920.1048@0.0.1920.1048" timestamp="1586954489300" />
+    <state width="1877" height="246" key="GridCell.Tab.1.left" timestamp="1586954489300">
       <screen x="0" y="0" width="1920" height="1048" />
     </state>
-    <state width="1877" height="217" key="GridCell.Tab.1.right/0.0.1920.1048@0.0.1920.1048" timestamp="1586870234621" />
+    <state width="1877" height="246" key="GridCell.Tab.1.left/0.0.1920.1048@0.0.1920.1048" timestamp="1586954489300" />
+    <state width="1877" height="246" key="GridCell.Tab.1.right" timestamp="1586954489300">
+      <screen x="0" y="0" width="1920" height="1048" />
+    </state>
+    <state width="1877" height="246" key="GridCell.Tab.1.right/0.0.1920.1048@0.0.1920.1048" timestamp="1586954489300" />
     <state x="485" y="247" key="SettingsEditor" timestamp="1586868436445">
       <screen x="0" y="0" width="1920" height="1048" />
     </state>
     <state x="485" y="247" key="SettingsEditor/0.0.1920.1048@0.0.1920.1048" timestamp="1586868436445" />
+    <state x="552" y="257" key="Vcs.Push.Dialog.v2" timestamp="1586871172649">
+      <screen x="0" y="0" width="1920" height="1048" />
+    </state>
+    <state x="552" y="257" key="Vcs.Push.Dialog.v2/0.0.1920.1048@0.0.1920.1048" timestamp="1586871172649" />
+    <state x="980" y="279" width="596" height="584" key="find.popup" timestamp="1586936063567">
+      <screen x="0" y="0" width="1920" height="1048" />
+    </state>
+    <state x="980" y="279" width="596" height="584" key="find.popup/0.0.1920.1048@0.0.1920.1048" timestamp="1586936063567" />
+    <state x="623" y="227" width="672" height="678" key="search.everywhere.popup" timestamp="1586935179313">
+      <screen x="0" y="0" width="1920" height="1048" />
+    </state>
+    <state x="623" y="227" width="672" height="678" key="search.everywhere.popup/0.0.1920.1048@0.0.1920.1048" timestamp="1586935179313" />
   </component>
 </project>

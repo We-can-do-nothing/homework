@@ -1,21 +1,4 @@
-<!DOCTYPE HTML>
-<html xmlns:th="http://www.thymeleaf.org"
-      xmlns="http://www.w3.org/1999/xhtml">
-<head>
-<script type="application/javascript">
-    function search(){
-        var username = $("#username").val();
-        var status = $("#status").val();
-        var url = '/user/userSearch?username=' + username + '&status=' + status;
-        $.ajax({
-            url: url,
-            type: 'POST',
-            success: function (data) {
-                $("#tableList").html(data);
-            }
-        })
-    }
-</script>
+
     <title>人事管理系统 ——用户管理</title>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
     <meta http-equiv="pragma" content="no-cache"/>
@@ -41,7 +24,7 @@
             var url = '/user/showPage?cpage=' + id;
             $.ajax({
                 url: url,
-                type: 'POST',
+                type: 'GET',
                 success: function (data) {
                     $("#tableList").html(data);
                     var idName = "#btn"+id;
@@ -112,52 +95,8 @@
         })
 
     </script>
-</head>
-<body>
 
-<!-- 导航 -->
-<table width="100%" border="0" cellpadding="0" cellspacing="0">
-    <tr>
-        <td height="10"></td>
-    </tr>
-    <tr>
-        <td width="15" height="32"><img src="../images/main_locleft.gif" width="15" height="32"></td>
-        <td class="main_locbg font2"><img src="../images/pointer.gif">&nbsp;&nbsp;&nbsp;当前位置：用户管理 &gt; 用户查询</td>
-        <td width="15" height="32"><img src="../images/main_locright.gif" width="15" height="32"></td>
-    </tr>
-</table>
 
-<table width="100%" height="40%" border="0" cellpadding="5" cellspacing="0" class="main_tabbor">
-    <!-- 查询区  -->
-    <tr valign="top">
-        <td height="30">
-            <table width="100%" border="0" cellpadding="0" cellspacing="10" class="main_tab">
-                <tr>
-                    <td class="fftd">
-
-                        <table width="100%" border="0" cellpadding="0" cellspacing="0">
-                            <tr>
-                                <td class="font3">
-                                    用户名：<input type="text" id="username" name="username">
-                                    用户状态：<select name="status" id="status">
-                                    <option value="0">全部</option>
-                                    <option value="1">管理员</option>
-                                    <option value="2">普通用户</option>
-                                </select>
-                                    <input type="submit" onclick="search()" value="搜索"/>
-                                    <input id="delete" type="button" value="删除"/>
-                                </td>
-                            </tr>
-                        </table>
-
-                    </td>
-                </tr>
-            </table>
-        </td>
-    </tr>
-</table>
-
-    <div class="tableList" id="tableList" th:fragment="pageHtml">
     <!-- 数据展示区 -->
     <tr valign="top">
         <td height="20">
@@ -176,18 +115,18 @@
 
                 </tr>
 
-                <tr th:each="user,state:${page.rows}" id="data_0" align="center" class="main_trbg"
+                <tr id="data_0" align="center" class="main_trbg"
                     style="background-color: rgb(255, 255, 255);">
-                    <td><input type="checkbox" id="box_0" th:id="'box_' + ${user.user_id}" th:value="${user.user_id}">
+                    <td><input type="checkbox" id="box_1" value="1">
                     </td>
-                    <td th:text="${user.Loginname}"></td>
-                    <td th:text="${user.password}"></td>
-                    <td th:text="${user.UserName}">s</td>
-                    <td th:text="${user.Status}"></td>
-                    <td th:text="${user.Createdate}"></td>
+                    <td>admin12</td>
+                    <td>123456</td>
+                    <td>admin12</td>
+                    <td>1</td>
+                    <td>Mon Apr 13 19:03:11 GMT+08:00 2020</td>
 
                     <td align="center" width="80px;"><a
-                            th:href="@{'showUpdateUser.html' + '?' + user_id + '=' + ${user.user_id}}">
+                            href="showUpdateUser.html?user_id=1">
                         <img title="修改" src="../images/update.gif"></a>
                     </td>
 
@@ -199,47 +138,34 @@
             <div align="center">
 
                 <!--        首页更改-->
-                <button type="button" class="btn btn-light" th:text="首页"
-                        th:onclick="${page.isFirstPage}==true?'': 'summit(1)'"></button>
+                <button type="button" class="btn btn-light">首页</button>
 
-                <button type="button" class="btn btn-light" th:onclick="${page.isFirstPage}==true?'': 'summit('+${page.current - 1} + ')'"
-                        th:text="上一页"
-                ></button>
+                <button type="button" class="btn btn-light"
+                >上一页</button>
 
                 <!-- 如果前面页码没有显示完则显示省略号 -->
-                <a th:if="${page.navigateFirstPage > 1}"><strong>...</strong></a>
+                
 
                 <!-- 显示导航页码 -->
 
-                <th:block th:each="i: ${page.navigatepageNums}">
-                    <button type="button" class="btn btn-light" th:classappend="${page.current == i} ? 'btn-primary'"
-                            th:onclick="'summit(' + ${i} + ')'" th:text="${i}" th:id="'btn'+${i}"
-                    ></button>
-                </th:block>
+                
+                    <button type="button" class="btn btn-light btn-primary" onclick="summit(1)" id="btn1"
+                    >1</button>
+                
 
 
                 <!-- 如果后面页码没有显示完则显示省略号 -->
-                <a th:if="${page.navigateLastPage < page.totalPages}"><strong>...</strong></a>
+                
 
                 <!-- 如果是末页，disable下一页和末页-->
-                <button type="button" class="btn btn-light" th:onclick="${page.isLastPage}==true?'': 'summit('+${page.current + 1} + ')'"
-                        th:text="下一页"
-                ></button>
+                <button type="button" class="btn btn-light"
+                >下一页</button>
 
-                <button type="button" class="btn btn-light" th:onclick="${page.isLastPage}==true?'': 'summit('+${page.totalPages} + ')'"
-                        th:text="尾页"
-                ></button>
+                <button type="button" class="btn btn-light"
+                >尾页</button>
             </div>
 
 
         </td>
     </tr>
-</div>
 
-
-
-
-    <div style="height:10px;"></div>
-
-</body>
-</html>

@@ -9,8 +9,18 @@ import java.util.List;
 @Mapper
 public interface UserMapperInterface {
 
+    @SelectProvider(type = UserProvider.class, method = "sqlUser")
+    List<User> queryByUserNameAndStatus(@Param("UserName") String UserName,
+                                        @Param("status") Integer status,
+                                        @Param("startrow") int startrow,
+                                        @Param("num") int num);
+
     @Select("select * from User")
     List<User> queryAllUser();
+
+
+    @SelectProvider(type = UserProvider.class, method = "sqlSearchByLS")
+    int getTotalByLS(@Param("status") Integer status, @Param("UserName") String userName);
 
     @Select("delete from User where user_id = #{id}")
     void deleteById(Integer id);

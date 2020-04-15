@@ -1,0 +1,48 @@
+POST http://localhost:8080/user/userSearch?username=admin1&status=0
+Accept: */*
+Cache-Control: no-cache
+
+<> 2020-04-15T083629.200.html
+
+###
+
+POST http://localhost:8080/user/userSearch?username=admin1&status=0
+Accept: */*
+Cache-Control: no-cache
+
+<> 2020-04-15T082657.200.html
+
+###
+
+POST http://localhost:8080/user/userSearch?username=admin1&status=0?
+Accept: */*
+Cache-Control: no-cache
+
+<> 2020-04-15T082644.400.json
+
+###
+
+GET http://localhost:8080/user/userSearch?username=admin1&status=0
+Accept: */*
+Cache-Control: no-cache
+
+<> 2020-04-15T074736.200.html
+
+###
+
+GET http://localhost:8080/user/userSearch?username=abc&status=0
+Accept: */*
+Cache-Control: no-cache
+
+<> 2020-04-15T074707.200.html
+
+###
+
+GET http://localhost:8080/user/userSearch?username=abc&status=0
+Accept: */*
+Cache-Control: no-cache
+
+<> 2020-04-15T074412.200.html
+
+###
+

@@ -3,7 +3,7 @@
 时间：2018-05-18
 描述：开发时根据实际情况注释掉或更改
 */
-var context="/hrm"
+var context=""
 
 /**
  * 配置layui的路径

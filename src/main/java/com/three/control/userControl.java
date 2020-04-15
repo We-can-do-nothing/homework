@@ -10,6 +10,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.web.servlet.ModelAndView;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
@@ -22,12 +23,68 @@ public class userControl {
     @Autowired
     private userServiceInterface UserService;
 
+    private boolean userFirst;
+    private String userName = "";
+    private Integer Status = 0;
+
+    @RequestMapping("/user/userSearch")
+    public ModelAndView showSeach(Integer cpage, String username, Integer status){
+        if (cpage == null)
+            cpage = 1;
+        userFirst = false;
+        userName = username;
+        Status = status;
+        ModelAndView modelAndView=new ModelAndView();
+        int pageSize = 5;   //页面显示行数，自行设置
+        int navigatePages = 3;//滑动窗口中格子个数，自行设置
+
+        int startrow = (cpage - 1) * pageSize;
+        //从0行开始，查询pageSize条记录
+        List<User> rows = UserService.queryByUserNameAndStatus(username,status,startrow, pageSize);
+        int total = UserService.getTotalByLS(status, username);
+        System.out.println(total);
+        //根据页面属性生成页面对象
+        Page<User> page = new Page<User>(total, pageSize, navigatePages, cpage, rows);
+        //传递到前台页面
+        modelAndView.setViewName("user/user::pageHtml");
+        modelAndView.addObject("page", page);
+        modelAndView.addObject("url","showall");
+        modelAndView.addObject("urlPara","cpage");
+        System.out.println(page.getRows().toString());
+        return modelAndView;
+    }
+
+    @RequestMapping("/user/showPage")
+    public ModelAndView showPageButton(Integer cpage){
+        if (userFirst == false)
+            return showSeach(cpage, userName, Status);
+        ModelAndView modelAndView=new ModelAndView();
+        int pageSize = 5;   //页面显示行数，自行设置
+        int navigatePages = 3;//滑动窗口中格子个数，自行设置
+
+        int startrow = (cpage - 1) * pageSize;
+        //从startrow行开始，查询pageSize条记录
+        List<User> rows = UserService.selectusersPage(startrow, pageSize);
+        int total = UserService.getTotal();
+        //根据页面属性生成页面对象
+        Page<User> page = new Page<User>(total, pageSize, navigatePages, cpage, rows);
+        //传递到前台页面
+        modelAndView.setViewName("user/user::pageHtml");
+        modelAndView.addObject("page", page);
+        modelAndView.addObject("url","showall");
+        modelAndView.addObject("urlPara","cpage");
+        return modelAndView;
+    }
+
     @GetMapping("user/user.html")
     public String user(ModelMap map, HttpSession session, Integer cpage){
+        userFirst = true;
         //cpage当前页号
         if (cpage == null) {
+            map.addAttribute("cpageFirst", true);
             cpage = 1;
-        }
+        }else
+            map.addAttribute("cpageFirst", false);
         int pageSize = 5;   //页面显示行数，自行设置
         int navigatePages = 3;//滑动窗口中格子个数，自行设置
 
@@ -39,6 +96,8 @@ public class userControl {
         Page<User> page = new Page<User>(total, pageSize, navigatePages, cpage, rows);
         //传递到前台页面
         map.addAttribute("page", page);
+        map.addAttribute("url","showall");
+        map.addAttribute("urlPara","cpage");
         return "user/user";
     }
 
