@@ -25,22 +25,8 @@
     </select>
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="e1dbf925-dd96-457d-a4fc-7e9745a60541" name="Default Changelist" comment="完成职位管理功能">
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/three/bean/notice.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/three/control/noticeControl.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/three/mapper/notice/noticeMapperInterface.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/three/mapper/notice/noticeProvider.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/three/service/impl/noticeService.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/three/service/noticeServiceInterface.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/httpRequests/http-requests-log.http" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/httpRequests/http-requests-log.http" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/three/control/deptControl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/three/control/deptControl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/three/control/loginControl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/three/control/loginControl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/notice/notice.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/notice/notice.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/notice/previewNotice.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/notice/previewNotice.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/notice/showAddNotice.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/notice/showAddNotice.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/notice/showUpdateNotice.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/notice/showUpdateNotice.html" afterDir="false" />
+    <list default="true" id="e1dbf925-dd96-457d-a4fc-7e9745a60541" name="Default Changelist" comment="完成公告管理功能">
+      <change afterPath="$PROJECT_DIR$/LICENCE" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -815,7 +801,7 @@
       <workItem from="1586929150547" duration="10161000" />
       <workItem from="1586942939282" duration="9784000" />
       <workItem from="1586954641429" duration="1119000" />
-      <workItem from="1586998096258" duration="38838000" />
+      <workItem from="1586998096258" duration="39148000" />
     </task>
     <task id="LOCAL-00001" summary="添加删除用户功能">
       <created>1586870707283</created>
@@ -852,7 +838,14 @@
       <option name="project" value="LOCAL" />
       <updated>1587030137330</updated>
     </task>
-    <option name="localTasksCounter" value="6" />
+    <task id="LOCAL-00006" summary="完成公告管理功能">
+      <created>1587049175691</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1587049175691</updated>
+    </task>
+    <option name="localTasksCounter" value="7" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -887,13 +880,18 @@
     <MESSAGE value="完成用户管理模块功能,完善进度条" />
     <MESSAGE value="完成部门管理功能" />
     <MESSAGE value="完成职位管理功能" />
-    <option name="LAST_COMMIT_MESSAGE" value="完成职位管理功能" />
+    <MESSAGE value="完成公告管理功能" />
+    <option name="LAST_COMMIT_MESSAGE" value="完成公告管理功能" />
   </component>
   <component name="WindowStateProjectService">
     <state x="414" y="179" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1587022804043">
       <screen x="0" y="0" width="1920" height="1048" />
     </state>
     <state x="414" y="179" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.0.1920.1048@0.0.1920.1048" timestamp="1587022804043" />
+    <state x="698" y="324" key="#com.intellij.fileTypes.FileTypeChooser" timestamp="1587049437642">
+      <screen x="0" y="0" width="1920" height="1048" />
+    </state>
+    <state x="698" y="324" key="#com.intellij.fileTypes.FileTypeChooser/0.0.1920.1048@0.0.1920.1048" timestamp="1587049437642" />
     <state x="765" y="229" key="#com.intellij.ide.util.MemberChooser" timestamp="1587047076922">
       <screen x="0" y="0" width="1920" height="1048" />
     </state>
@@ -942,10 +940,10 @@
       <screen x="0" y="0" width="1920" height="1048" />
     </state>
     <state x="485" y="247" key="SettingsEditor/0.0.1920.1048@0.0.1920.1048" timestamp="1587002660666" />
-    <state x="552" y="257" key="Vcs.Push.Dialog.v2" timestamp="1587030153127">
+    <state x="552" y="257" key="Vcs.Push.Dialog.v2" timestamp="1587049187749">
       <screen x="0" y="0" width="1920" height="1048" />
     </state>
-    <state x="552" y="257" key="Vcs.Push.Dialog.v2/0.0.1920.1048@0.0.1920.1048" timestamp="1587030153127" />
+    <state x="552" y="257" key="Vcs.Push.Dialog.v2/0.0.1920.1048@0.0.1920.1048" timestamp="1587049187749" />
     <state x="731" y="281" key="com.intellij.testIntegration.createTest.CreateTestDialog" timestamp="1587009301579">
       <screen x="0" y="0" width="1920" height="1048" />
     </state>
