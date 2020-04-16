@@ -1,4 +1,4 @@
-package com.three.mapper;
+package com.three.mapper.user;
 
 import org.apache.ibatis.jdbc.SQL;
 

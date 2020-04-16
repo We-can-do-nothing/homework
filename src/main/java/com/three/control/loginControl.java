@@ -2,18 +2,14 @@ package com.three.control;
 
 import com.three.bean.User;
 import com.three.common.addUtils;
-import com.three.mapper.UserMapperInterface;
 import com.three.service.faceServiceInterface;
 import com.three.service.impl.faceService;
-import com.three.service.impl.loginService;
 import com.three.service.loginServiceInterface;
-import org.json.JSONObject;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.*;
 
-import javax.servlet.http.Cookie;
 import javax.servlet.http.HttpServletResponse;
 
 @Controller

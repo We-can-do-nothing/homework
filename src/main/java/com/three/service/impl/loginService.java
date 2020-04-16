@@ -1,7 +1,7 @@
 package com.three.service.impl;
 
 import com.three.bean.User;
-import com.three.mapper.UserMapperInterface;
+import com.three.mapper.user.UserMapperInterface;
 import com.three.service.loginServiceInterface;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;

@@ -178,11 +178,11 @@
 
                 <tr th:each="user,state:${page.rows}" id="data_0" align="center" class="main_trbg"
                     style="background-color: rgb(255, 255, 255);">
-                    <td><input type="checkbox" id="box_0" th:id="'box_' + ${user.user_id}" th:value="${user.user_id}">
+                    <td><input type="checkbox" th:id="'box_' + ${user.user_id}" th:value="${user.user_id}">
                     </td>
                     <td th:text="${user.Loginname}"></td>
                     <td th:text="${user.password}"></td>
-                    <td th:text="${user.UserName}">s</td>
+                    <td th:text="${user.UserName}"></td>
                     <td th:text="${user.Status}"></td>
                     <td th:text="${user.Createdate}"></td>
 

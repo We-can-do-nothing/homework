@@ -28,10 +28,10 @@ public class userControl {
     private Integer Status = 0;
 
     @RequestMapping("/user/userSearch")
-    public ModelAndView showSeach(Integer cpage, String username, Integer status){
+    public ModelAndView showSearch(Integer cpage, String username, Integer status){
         if (cpage == null)
             cpage = 1;
-        userFirst = false;
+        userFirst = false; // 表示并不是第一次进入user/user.html
         userName = username;
         Status = status;
         ModelAndView modelAndView=new ModelAndView();
@@ -57,7 +57,7 @@ public class userControl {
     @RequestMapping("/user/showPage")
     public ModelAndView showPageButton(Integer cpage){
         if (userFirst == false)
-            return showSeach(cpage, userName, Status);
+            return showSearch(cpage, userName, Status);
         ModelAndView modelAndView=new ModelAndView();
         int pageSize = 5;   //页面显示行数，自行设置
         int navigatePages = 3;//滑动窗口中格子个数，自行设置

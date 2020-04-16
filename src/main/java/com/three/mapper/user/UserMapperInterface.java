@@ -1,8 +1,7 @@
-package com.three.mapper;
+package com.three.mapper.user;
 
 import com.three.bean.User;
 import org.apache.ibatis.annotations.*;
-import org.springframework.stereotype.Repository;
 
 import java.util.List;
 

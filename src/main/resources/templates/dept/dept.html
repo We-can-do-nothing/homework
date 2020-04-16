@@ -1,6 +1,7 @@
 
 <!DOCTYPE HTML>
-<html>
+<html xmlns:th="http://www.thymeleaf.org"
+xmlns="http://www.w3.org/1999/xhtml">
 <head>
 	<title>人事管理系统 ——部门管理</title>
 	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
@@ -19,7 +20,34 @@
 	<script src="../js/ligerUI/js/plugins/ligerDialog.js" type="text/javascript"></script>
 	<script src="../js/ligerUI/js/plugins/ligerResizable.js" type="text/javascript"></script>
 	<link href="../css/pager.css" type="text/css" rel="stylesheet" />
+	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.4.1/dist/css/bootstrap.min.css"/>
 	<script type="text/javascript">
+
+		function summit(id){
+			var url = '/dept/showDeptPage?cpage=' + id;
+			$.ajax({
+				url: url,
+				type: 'POST',
+				success: function (data) {
+					$("#tableList").html(data);
+					var idName = "#btn"+id;
+					$(idName).removeClass("btn-light").addClass("btn-primary");
+				}
+			})
+		}
+
+		function searchDept(){
+			var DeptName = $("#deptName").val();
+			var url = '/dept/DeptSearch?deptName=' + DeptName;
+			$.ajax({
+				url: url,
+				type: 'POST',
+				success: function (data) {
+					$("#tableList").html(data);
+				}
+			})
+		}
+
 		$(function(){
 	 	   /** 获取上一次选中的部门数据 */
 	 	   var boxs  = $("input[type='checkbox'][id^='box_']");
@@ -53,9 +81,26 @@
 	 			   
 	 			   $.ligerDialog.confirm("确认要删除吗?","删除部门",function(r){
 	 				   if(r){
-	 					   // alert("删除："+ids.get());
-	 					   // 发送请求
-	 					  // window.location = "${ctx }/dept/removeDept?ids=" + ids.get();
+						   $.ajax({
+							   type: "POST",
+							   url: "/dept/removeDept?ids=" + ids.get(),
+							   async: true,
+							   contentType: "application/json;charset=UTF-8",
+							   error: function (XMLHttpRequest, textStatus, errorThrown) {
+								   alert("消息", "出错了，请于管理员联系");
+							   },
+							   success: function (json) {
+								   if (json!== "success") {
+									   $.ligerDialog.error(json);
+								   } else {
+								   	var idss = ids.get().toString();
+								   	var idss = idss.split(",");
+									   for (var i = 0; i < idss.length; i++) {
+										   $("#data_" + idss[i]).fadeOut("fast");
+									   }
+								   }
+							   }
+						   });
 	 				   }
 	 			   });
 	 		   }
@@ -74,7 +119,7 @@
 	  </tr>
 	</table>
 	
-	<table width="100%" height="90%" border="0" cellpadding="5" cellspacing="0" class="main_tabbor">
+	<table width="100%" height="40%" border="0" cellpadding="5" cellspacing="0" class="main_tabbor">
 	  <!-- 查询区  -->
 	  <tr valign="top">
 	    <td height="30">
@@ -85,8 +130,8 @@
 				    <table width="100%" border="0" cellpadding="0" cellspacing="0">
 					  <tr>
 					    <td class="font3">
-					    	部门名称：<input type="text" name="name">
-					    	 <input type="submit" value="搜索"/>
+					    	部门名称：<input type="text" id="deptName" name="name">
+					    	 <input type="submit" onclick="searchDept()" value="搜索"/>
 					    	<input id="delete" type="button" value="删除"/>
 					    </td>
 					  </tr>
@@ -97,59 +142,31 @@
 		  </table>
 		</td>
 	  </tr>
-	  
+	</table>
+
+	<div class="tableList" id="tableList" th:fragment="pageHtml">
 	  <!-- 数据展示区 -->
 	  <tr valign="top">
 	    <td height="20">
-		 <table width="100%" border="1" cellpadding="5" cellspacing="0" style="border:#c2c6cc 1px solid; border-collapse:collapse;">
-		    <tbody><tr class="main_trbg_tit" align="center">
-			  <td><input type="checkbox" name="checkAll" id="checkAll"></td>
-			  <td>部门名称</td>
-			  <td>详细信息</td>
-			  	
-			  <td align="center">操作</td>
-			  
-			</tr>
-			
-				<tr id="data_0" align="center" class="main_trbg" style="background-color: rgb(255, 255, 255);">
-					<td><input type="checkbox" id="box_0" value="1"></td>
-					 <td>技术部</td>
-					  <td>技术部</td>
+		 <table class="table table-hover" width="100%" border="1" cellpadding="5" cellspacing="0"
+				style="border:#c2c6cc 1px solid; border-collapse:collapse;">
+			 <thead>
+			 <tr align="center" class="main_trbg_tit">
+				 <td scope="col"><input type="checkbox" name="checkAll" id="checkAll"></td>
+				 <td scope="col">部门名称</td>
+				 <td scope="col">详细信息</td>
+				 <td width="70px;" scope="col">操作</td>
+			 </tr>
+			 </thead>
+		    <tbody>
+
+				<tr th:each="dept,state:${page.rows}" th:id="'data_' + ${dept.depart_id}" align="center" class="main_trbg" style="background-color: rgb(255, 255, 255);">
+					<td><input type="checkbox" th:id="'box_' + ${dept.depart_id}" th:value="${dept.depart_id}"></td>
+					 <td th:text="${dept.depart_name}"></td>
+					  <td th:text="${dept.depart_remark}"></td>
 					  	
-					 <td align="center" width="40px;"><a href="showUpdateDept.html">
-							<img title="修改" src="../images/update.gif"></a>
-					  </td>
-					  
-				</tr>
-			
-				<tr id="data_1" align="center" class="main_trbg" style="background-color: rgb(238, 204, 255);">
-					<td><input type="checkbox" id="box_1" value="2"></td>
-					 <td>运营部</td>
-					  <td>运营部</td>
-					  	
-					 <td align="center" width="40px;"><a href="showUpdateDept.html">
-							<img title="修改" src="../images/update.gif"></a>
-					  </td>
-					  
-				</tr>
-			
-				<tr id="data_2" align="center" class="main_trbg">
-					<td><input type="checkbox" id="box_2" value="3"></td>
-					 <td>财务部</td>
-					  <td>财务部</td>
-					  	
-					 <td align="center" width="40px;"><a href="showUpdateDept.html">
-							<img title="修改" src="../images/update.gif"></a>
-					  </td>
-					  
-				</tr>
-			
-				<tr id="data_3" align="center" class="main_trbg">
-					<td><input type="checkbox" id="box_3" value="5"></td>
-					 <td>总公办</td>
-					  <td>总公办</td>
-					  	
-					 <td align="center" width="40px;"><a href="showUpdateDept.html">
+					 <td align="center" width="40px;"><a
+							 th:href="@{'showUpdateDept.html?dept_id=' + ${dept.depart_id}}">
 							<img title="修改" src="../images/update.gif"></a>
 					  </td>
 					  
@@ -159,10 +176,41 @@
 		</td>
 	  </tr>
 	  <!-- 分页标签 -->
-	  <tr valign="top"><td align="center" class="font3">
-	  	 <table width="100%" align="center" style="font-size:13px;" class="digg"><tbody><tr><td style="COLOR: #0061de; MARGIN-RIGHT: 3px; PADDING-TOP: 2px; TEXT-DECORATION: none"><span class="disabled">上一页</span><span class="current">1</span><a href="#">2</a><a href="#">下一页</a>&nbsp;跳转到&nbsp;&nbsp;<input style="text-align: center;BORDER-RIGHT: #aaaadd 1px solid; PADDING-RIGHT: 5px; BORDER-TOP: #aaaadd 1px solid; PADDING-LEFT: 5px; PADDING-BOTTOM: 2px; MARGIN: 2px; BORDER-LEFT: #aaaadd 1px solid; COLOR: #000099; PADDING-TOP: 2px; BORDER-BOTTOM: #aaaadd 1px solid; TEXT-DECORATION: none" type="text" size="2" id="pager_jump_page_size">&nbsp;<input type="button" style="text-align: center;BORDER-RIGHT: #dedfde 1px solid; PADDING-RIGHT: 6px; BACKGROUND-POSITION: 50% bottom; BORDER-TOP: #dedfde 1px solid; PADDING-LEFT: 6px; PADDING-BOTTOM: 2px; BORDER-LEFT: #dedfde 1px solid; COLOR: #0061de; MARGIN-RIGHT: 3px; PADDING-TOP: 2px; BORDER-BOTTOM: #dedfde 1px solid; TEXT-DECORATION: none" value="确定" id="pager_jump_btn"></td></tr><tr align="center"><td style="font-size:13px;"></td></tr><tr><td style="COLOR: #0061de; MARGIN-RIGHT: 3px; PADDING-TOP: 2px; TEXT-DECORATION: none">总共<font color="red">6</font>条记录，当前显示1-4条记录。</td></tr></tbody></table>
-	  </td></tr>
-	</table>
+	<div align="center">
+
+		<!--        首页更改-->
+		<button type="button" class="btn btn-light" th:text="首页"
+				th:onclick="${page.isFirstPage}==true?'': 'summit(1)'"></button>
+
+		<button type="button" class="btn btn-light" th:onclick="${page.isFirstPage}==true?'': 'summit('+${page.current - 1} + ')'"
+				th:text="上一页"
+		></button>
+
+		<!-- 如果前面页码没有显示完则显示省略号 -->
+		<a th:if="${page.navigateFirstPage > 1}"><strong>...</strong></a>
+
+		<!-- 显示导航页码 -->
+
+		<th:block th:each="i: ${page.navigatepageNums}">
+			<button type="button" class="btn btn-light" th:classappend="${page.current == i} ? 'btn-primary'"
+					th:onclick="'summit(' + ${i} + ')'" th:text="${i}" th:id="'btn'+${i}"
+			></button>
+		</th:block>
+
+
+		<!-- 如果后面页码没有显示完则显示省略号 -->
+		<a th:if="${page.navigateLastPage < page.totalPages}"><strong>...</strong></a>
+
+		<!-- 如果是末页，disable下一页和末页-->
+		<button type="button" class="btn btn-light" th:onclick="${page.isLastPage}==true?'': 'summit('+${page.current + 1} + ')'"
+				th:text="下一页"
+		></button>
+
+		<button type="button" class="btn btn-light" th:onclick="${page.isLastPage}==true?'': 'summit('+${page.totalPages} + ')'"
+				th:text="尾页"
+		></button>
+	</div>
+	</div>
 	<div style="height:10px;"></div>
 </body>
 </html>
