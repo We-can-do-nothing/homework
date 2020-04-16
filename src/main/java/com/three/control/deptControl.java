@@ -57,7 +57,6 @@ public class deptControl {
         //从0行开始，查询pageSize条记录
         List<department> rows = deptService.selectByDeptName(deptName, startrow, pageSize);
         int total = deptService.getTotalByDeptName(deptName);
-        System.out.println(total);
         //根据页面属性生成页面对象
         Page<department> page = new Page<department>(total, pageSize, navigatePages, cpage, rows);
         //传递到前台页面
@@ -112,7 +111,7 @@ public class deptControl {
 
     @RequestMapping(value="/dept/removeDept", method = RequestMethod.POST)
     @ResponseBody
-    public String removeUser(String ids){
+    public String removeDept(String ids){
         String[] idss = ids.split(",");
         for (String strNumber:idss) {
             deptService.deleteById(Integer.parseInt(strNumber));

@@ -1,6 +1,7 @@
 
 <!DOCTYPE HTML>
-<html>
+<html xmlns:th="http://www.thymeleaf.org"
+	  xmlns="http://www.w3.org/1999/xhtml">
 	<head>
 		<title>人事管理系统 ——后台管理</title>
 		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
@@ -13,9 +14,9 @@
 		
 	</head>
 	<body>
-		 <center><h1>参加会议通知</h1></center>
+	<center><h1 th:text="${notice.notice_title}"></h1></center>
 		 <br/>
-		 今天有技术部有会议
+		 <a th:text="${notice.notice_content}"></a>
 		
 	</body>
 </html>

@@ -45,6 +45,7 @@ public class loginControl {
     public String mainIndex(ModelMap map, HttpServletResponse response){
         map.addAttribute("LoginName", LoginName);
         addutils.addCookie(response, "LoginName", LoginName);
+        addutils.addCookie(response, "user_id", id.toString());
         map.addAttribute("user_id", id);
         return "main";
     }
