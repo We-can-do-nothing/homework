@@ -106,7 +106,6 @@ public class deptControl {
     @RequestMapping(value="dept/updateDept", method = RequestMethod.POST)
     @ResponseBody
     String deptUpdate(ModelMap map, Integer depart_id, String depart_name, String depart_remark){
-        System.out.println(depart_id + ";" + depart_name + ";" + depart_remark);
         deptService.updateDept(depart_name, depart_remark, depart_id);
         return "success";
     }
@@ -124,9 +123,7 @@ public class deptControl {
     @RequestMapping("dept/deptAdd")
     @ResponseBody
     String deptAdd(ModelMap map, String deptName, String remark){
-        System.out.println(deptName + ":" + remark);
         deptService.AddDept(deptName, remark);
         return "success";
     }
-
 }

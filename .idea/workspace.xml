@@ -25,8 +25,20 @@
     </select>
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="e1dbf925-dd96-457d-a4fc-7e9745a60541" name="Default Changelist" comment="">
+    <list default="true" id="e1dbf925-dd96-457d-a4fc-7e9745a60541" name="Default Changelist" comment="完成部门管理功能">
+      <change beforePath="$PROJECT_DIR$/.idea/httpRequests/http-requests-log.http" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/httpRequests/http-requests-log.http" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/three/control/JobControl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/three/control/JobControl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/three/control/deptControl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/three/control/deptControl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/three/mapper/dept/DeptProvider.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/three/mapper/dept/DeptProvider.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/three/mapper/job/JobProvider.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/three/mapper/job/JobProvider.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/three/mapper/job/jobMapperInterface.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/three/mapper/job/jobMapperInterface.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/three/service/impl/jobService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/three/service/impl/jobService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/three/service/jobServiceInterface.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/three/service/jobServiceInterface.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/job/job.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/job/job.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/job/showAddJob.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/job/showAddJob.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/job/showUpdateJob.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/job/showUpdateJob.html" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -36,8 +48,8 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
-        <option value="Interface" />
         <option value="JUnit5 Test Class" />
+        <option value="Interface" />
         <option value="Class" />
       </list>
     </option>
@@ -46,7 +58,7 @@
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
   <component name="HighlightingSettingsPerFile">
-    <setting file="dummy://restClient/response9.txt" root0="SKIP_INSPECTION" />
+    <setting file="dummy://restClient/response11.txt" root0="SKIP_INSPECTION" />
   </component>
   <component name="MavenImportPreferences">
     <option name="generalSettings">
@@ -98,6 +110,86 @@
   <component name="RestClientSettings">
     <option name="REQUEST_HISTORY">
       <list>
+        <RestClientRequest>
+          <option name="httpMethod" value="POST" />
+          <option name="urlBase" value="http://localhost:8080" />
+          <option name="urlPath" value="/job/jobAdd" />
+          <option name="headers">
+            <list>
+              <KeyValuePair>
+                <option name="key" value="Accept" />
+                <option name="value" value="*/*" />
+              </KeyValuePair>
+              <KeyValuePair>
+                <option name="key" value="Cache-Control" />
+                <option name="value" value="no-cache" />
+              </KeyValuePair>
+            </list>
+          </option>
+          <option name="parameters">
+            <list>
+              <KeyValuePair>
+                <option name="key" value="username" />
+                <option name="value" value="admin1" />
+              </KeyValuePair>
+              <KeyValuePair>
+                <option name="key" value="status" />
+                <option name="value" value="0" />
+              </KeyValuePair>
+              <KeyValuePair>
+                <option name="key" value="deptName" />
+                <option name="value" value="abc" />
+              </KeyValuePair>
+              <KeyValuePair>
+                <option name="key" value="remark" />
+                <option name="value" value="abcde" />
+              </KeyValuePair>
+              <KeyValuePair>
+                <option name="key" value="deptName" />
+                <option name="value" value="财务部" />
+              </KeyValuePair>
+              <KeyValuePair>
+                <option name="key" value="remark" />
+                <option name="value" value="财务" />
+              </KeyValuePair>
+              <KeyValuePair>
+                <option name="key" value="deptName" />
+                <option name="value" value="财务部" />
+              </KeyValuePair>
+              <KeyValuePair>
+                <option name="key" value="remark" />
+                <option name="value" value="财务" />
+              </KeyValuePair>
+              <KeyValuePair>
+                <option name="key" value="deptName" />
+                <option name="value" value="销售部" />
+              </KeyValuePair>
+              <KeyValuePair>
+                <option name="key" value="remark" />
+                <option name="value" value="销售" />
+              </KeyValuePair>
+              <KeyValuePair>
+                <option name="key" value="depart_id" />
+                <option name="value" value="1" />
+              </KeyValuePair>
+              <KeyValuePair>
+                <option name="key" value="depart_name" />
+                <option name="value" value="财务部" />
+              </KeyValuePair>
+              <KeyValuePair>
+                <option name="key" value="depart_remark" />
+                <option name="value" value="财务" />
+              </KeyValuePair>
+              <KeyValuePair>
+                <option name="key" value="jobName" />
+                <option name="value" value="软件开发工程师$remark=开发软件的码畜" />
+              </KeyValuePair>
+            </list>
+          </option>
+          <option name="parametersEnabled" value="true" />
+          <option name="textToSend" value="" />
+          <option name="filesToSend" value="" />
+        </RestClientRequest>
         <RestClientRequest>
           <option name="httpMethod" value="POST" />
           <option name="urlBase" value="http://localhost:8080" />
@@ -591,8 +683,8 @@
       </extension>
       <option name="SPRING_BOOT_MAIN_CLASS" value="com.three.secondHomework" />
       <option name="ALTERNATIVE_JRE_PATH" />
-      <option name="UPDATE_ACTION_UPDATE_POLICY" value="UpdateClassesAndResources" />
-      <option name="FRAME_DEACTIVATION_UPDATE_POLICY" value="UpdateClassesAndResources" />
+      <option name="UPDATE_ACTION_UPDATE_POLICY" value="UpdateResources" />
+      <option name="FRAME_DEACTIVATION_UPDATE_POLICY" value="UpdateResources" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
@@ -601,8 +693,8 @@
       <item itemvalue="Application.splitTest" />
       <item itemvalue="HTTP Request.rest-api#1" />
       <item itemvalue="HTTP Request.rest-api_1#1" />
-      <item itemvalue="Spring Boot.secondHomework" />
       <item itemvalue="JUnit.deptMapperInterfaceTest.updateDept" />
+      <item itemvalue="Spring Boot.secondHomework" />
     </list>
     <recent_temporary>
       <list>
@@ -641,7 +733,7 @@
       <workItem from="1586929150547" duration="10161000" />
       <workItem from="1586942939282" duration="9784000" />
       <workItem from="1586954641429" duration="1119000" />
-      <workItem from="1586998096258" duration="16281000" />
+      <workItem from="1586998096258" duration="25784000" />
     </task>
     <task id="LOCAL-00001" summary="添加删除用户功能">
       <created>1586870707283</created>
@@ -664,7 +756,14 @@
       <option name="project" value="LOCAL" />
       <updated>1587015694659</updated>
     </task>
-    <option name="localTasksCounter" value="4" />
+    <task id="LOCAL-00004" summary="完成部门管理功能">
+      <created>1587015763203</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1587015763203</updated>
+    </task>
+    <option name="localTasksCounter" value="5" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -701,58 +800,62 @@
     <option name="LAST_COMMIT_MESSAGE" value="完成部门管理功能" />
   </component>
   <component name="WindowStateProjectService">
-    <state x="765" y="229" key="#com.intellij.ide.util.MemberChooser" timestamp="1587014574601">
+    <state x="414" y="179" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1587022804043">
       <screen x="0" y="0" width="1920" height="1048" />
     </state>
-    <state x="765" y="229" key="#com.intellij.ide.util.MemberChooser/0.0.1920.1048@0.0.1920.1048" timestamp="1587014574601" />
+    <state x="414" y="179" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.0.1920.1048@0.0.1920.1048" timestamp="1587022804043" />
+    <state x="765" y="229" key="#com.intellij.ide.util.MemberChooser" timestamp="1587029473257">
+      <screen x="0" y="0" width="1920" height="1048" />
+    </state>
+    <state x="765" y="229" key="#com.intellij.ide.util.MemberChooser/0.0.1920.1048@0.0.1920.1048" timestamp="1587029473257" />
     <state x="736" y="391" width="447" height="273" key="#com.intellij.refactoring.move.moveClassesOrPackages.MoveClassesOrPackagesDialog.classes" timestamp="1587009311979">
       <screen x="0" y="0" width="1920" height="1048" />
     </state>
     <state x="736" y="391" width="447" height="273" key="#com.intellij.refactoring.move.moveClassesOrPackages.MoveClassesOrPackagesDialog.classes/0.0.1920.1048@0.0.1920.1048" timestamp="1587009311979" />
-    <state x="481" y="87" key="CommitChangelistDialog2" timestamp="1587015693669">
+    <state x="481" y="87" key="CommitChangelistDialog2" timestamp="1587015746309">
       <screen x="0" y="0" width="1920" height="1048" />
     </state>
-    <state x="481" y="87" key="CommitChangelistDialog2/0.0.1920.1048@0.0.1920.1048" timestamp="1587015693669" />
-    <state width="1877" height="251" key="GridCell.Tab.0.bottom" timestamp="1587015477102">
+    <state x="481" y="87" key="CommitChangelistDialog2/0.0.1920.1048@0.0.1920.1048" timestamp="1587015746309" />
+    <state width="1877" height="250" key="GridCell.Tab.0.bottom" timestamp="1587029769020">
       <screen x="0" y="0" width="1920" height="1048" />
     </state>
-    <state width="1877" height="251" key="GridCell.Tab.0.bottom/0.0.1920.1048@0.0.1920.1048" timestamp="1587015477102" />
-    <state width="1877" height="251" key="GridCell.Tab.0.center" timestamp="1587015477101">
+    <state width="1877" height="250" key="GridCell.Tab.0.bottom/0.0.1920.1048@0.0.1920.1048" timestamp="1587029769020" />
+    <state width="1877" height="250" key="GridCell.Tab.0.center" timestamp="1587029769020">
       <screen x="0" y="0" width="1920" height="1048" />
     </state>
-    <state width="1877" height="251" key="GridCell.Tab.0.center/0.0.1920.1048@0.0.1920.1048" timestamp="1587015477101" />
-    <state width="1877" height="251" key="GridCell.Tab.0.left" timestamp="1587015477100">
+    <state width="1877" height="250" key="GridCell.Tab.0.center/0.0.1920.1048@0.0.1920.1048" timestamp="1587029769020" />
+    <state width="1877" height="250" key="GridCell.Tab.0.left" timestamp="1587029769020">
       <screen x="0" y="0" width="1920" height="1048" />
     </state>
-    <state width="1877" height="251" key="GridCell.Tab.0.left/0.0.1920.1048@0.0.1920.1048" timestamp="1587015477100" />
-    <state width="1877" height="251" key="GridCell.Tab.0.right" timestamp="1587015477102">
+    <state width="1877" height="250" key="GridCell.Tab.0.left/0.0.1920.1048@0.0.1920.1048" timestamp="1587029769020" />
+    <state width="1877" height="250" key="GridCell.Tab.0.right" timestamp="1587029769020">
       <screen x="0" y="0" width="1920" height="1048" />
     </state>
-    <state width="1877" height="251" key="GridCell.Tab.0.right/0.0.1920.1048@0.0.1920.1048" timestamp="1587015477102" />
-    <state width="1877" height="251" key="GridCell.Tab.1.bottom" timestamp="1587015477102">
+    <state width="1877" height="250" key="GridCell.Tab.0.right/0.0.1920.1048@0.0.1920.1048" timestamp="1587029769020" />
+    <state width="1877" height="250" key="GridCell.Tab.1.bottom" timestamp="1587029769020">
       <screen x="0" y="0" width="1920" height="1048" />
     </state>
-    <state width="1877" height="251" key="GridCell.Tab.1.bottom/0.0.1920.1048@0.0.1920.1048" timestamp="1587015477102" />
-    <state width="1877" height="251" key="GridCell.Tab.1.center" timestamp="1587015477102">
+    <state width="1877" height="250" key="GridCell.Tab.1.bottom/0.0.1920.1048@0.0.1920.1048" timestamp="1587029769020" />
+    <state width="1877" height="250" key="GridCell.Tab.1.center" timestamp="1587029769020">
       <screen x="0" y="0" width="1920" height="1048" />
     </state>
-    <state width="1877" height="251" key="GridCell.Tab.1.center/0.0.1920.1048@0.0.1920.1048" timestamp="1587015477102" />
-    <state width="1877" height="251" key="GridCell.Tab.1.left" timestamp="1587015477102">
+    <state width="1877" height="250" key="GridCell.Tab.1.center/0.0.1920.1048@0.0.1920.1048" timestamp="1587029769020" />
+    <state width="1877" height="250" key="GridCell.Tab.1.left" timestamp="1587029769020">
       <screen x="0" y="0" width="1920" height="1048" />
     </state>
-    <state width="1877" height="251" key="GridCell.Tab.1.left/0.0.1920.1048@0.0.1920.1048" timestamp="1587015477102" />
-    <state width="1877" height="251" key="GridCell.Tab.1.right" timestamp="1587015477102">
+    <state width="1877" height="250" key="GridCell.Tab.1.left/0.0.1920.1048@0.0.1920.1048" timestamp="1587029769020" />
+    <state width="1877" height="250" key="GridCell.Tab.1.right" timestamp="1587029769020">
       <screen x="0" y="0" width="1920" height="1048" />
     </state>
-    <state width="1877" height="251" key="GridCell.Tab.1.right/0.0.1920.1048@0.0.1920.1048" timestamp="1587015477102" />
+    <state width="1877" height="250" key="GridCell.Tab.1.right/0.0.1920.1048@0.0.1920.1048" timestamp="1587029769020" />
     <state x="485" y="247" key="SettingsEditor" timestamp="1587002660666">
       <screen x="0" y="0" width="1920" height="1048" />
     </state>
     <state x="485" y="247" key="SettingsEditor/0.0.1920.1048@0.0.1920.1048" timestamp="1587002660666" />
-    <state x="552" y="257" key="Vcs.Push.Dialog.v2" timestamp="1587015709243">
+    <state x="552" y="257" key="Vcs.Push.Dialog.v2" timestamp="1587029977796">
       <screen x="0" y="0" width="1920" height="1048" />
     </state>
-    <state x="552" y="257" key="Vcs.Push.Dialog.v2/0.0.1920.1048@0.0.1920.1048" timestamp="1587015709243" />
+    <state x="552" y="257" key="Vcs.Push.Dialog.v2/0.0.1920.1048@0.0.1920.1048" timestamp="1587029977796" />
     <state x="731" y="281" key="com.intellij.testIntegration.createTest.CreateTestDialog" timestamp="1587009301579">
       <screen x="0" y="0" width="1920" height="1048" />
     </state>
@@ -761,9 +864,9 @@
       <screen x="0" y="0" width="1920" height="1048" />
     </state>
     <state x="980" y="279" width="596" height="584" key="find.popup/0.0.1920.1048@0.0.1920.1048" timestamp="1586936063567" />
-    <state x="623" y="227" width="672" height="678" key="search.everywhere.popup" timestamp="1586935179313">
+    <state x="623" y="227" width="672" height="678" key="search.everywhere.popup" timestamp="1587021796284">
       <screen x="0" y="0" width="1920" height="1048" />
     </state>
-    <state x="623" y="227" width="672" height="678" key="search.everywhere.popup/0.0.1920.1048@0.0.1920.1048" timestamp="1586935179313" />
+    <state x="623" y="227" width="672" height="678" key="search.everywhere.popup/0.0.1920.1048@0.0.1920.1048" timestamp="1587021796284" />
   </component>
 </project>

@@ -15,4 +15,12 @@ public class JobProvider {
         sql.LIMIT((Integer) map.get("row"));
         return sql.toString();
     }
+
+    public String getTotalByJobName(Map map){
+        SQL sql = new SQL();
+        sql.SELECT("count(Job_id)").FROM("Job");
+        if (!map.get("JobName").equals(""));
+        sql.WHERE(" Job_name like " + "'%"+map.get("JobName")+"%'");
+        return sql.toString();
+    }
 }

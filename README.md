@@ -1,5 +1,5 @@
 # 大三实训一大作业（更新中）
-基于**springboot**，**mybatis**，**Java8**，**thymeleaf**，通过**idea**开发
+基于**springboot**，**mybatis**，**Java1.8**，**thymeleaf**，通过**JetBrains Idea2020.1**开发
 
 ##### 已功能实现
 
@@ -7,10 +7,10 @@
 - 账户密码登陆
 - 用户管理
 - 部门管理
+- 职位管理
 
 ##### 未实现功能
 
-- 职位管理
 - 员工管理
 - 公告管理
 - 下载中心

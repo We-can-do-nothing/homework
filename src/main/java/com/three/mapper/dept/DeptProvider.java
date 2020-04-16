@@ -8,7 +8,7 @@ public class DeptProvider {
     public String selectByDeptName(Map map){
         SQL sql = new SQL();
         sql.SELECT("*").FROM("department");
-        if (map.get("deptName")!=null)
+        if (map.get("deptName")!=null && !map.get("deptName").equals(""))
             sql.WHERE(" depart_name like " + "'%"+map.get("deptName")+"%'");
         sql.ORDER_BY("depart_id");
         sql.OFFSET((Integer)map.get("start"));
