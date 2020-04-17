@@ -19,7 +19,7 @@ public class DeptProvider {
     public String getTotalByDeptName(Map map){
         SQL sql = new SQL();
         sql.SELECT("count(depart_id)").FROM("department");
-        if (!map.get("deptName").equals(""));
+        if (!map.get("deptName").equals(""))
             sql.WHERE(" depart_name like " + "'%"+map.get("deptName")+"%'");
         return sql.toString();
     }
