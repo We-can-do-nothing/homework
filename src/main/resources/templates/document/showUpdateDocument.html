@@ -1,95 +1,123 @@
 
 <!DOCTYPE HTML>
-<html>
-	<head>
-		<title>人事管理系统 ——后台管理</title>
-		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-		<meta http-equiv="pragma" content="no-cache" />
-		<meta http-equiv="cache-control" content="no-cache" />
-		<meta http-equiv="expires" content="0" />    
-		<meta http-equiv="keywords" content="keyword1,keyword2,keyword3" />
-		<meta http-equiv="description" content="This is my page" />
-		<link href="fkjava.ico" rel="shortcut icon" type="image/x-icon" />
-		<link href="../css/css.css" type="text/css" rel="stylesheet" />
-		<script type="text/javascript" src="../js/jquery-1.11.0.js"></script>
-        <script type="text/javascript" src="../js/jquery-migrate-1.2.1.js"></script>
-		<script type="text/javascript" src="../js/tiny_mce/tiny_mce.js"></script>
-		<script type="text/javascript" src="../js/jquery.form.js"></script>
-		<script type="text/javascript">
-		
-	    $(document).ready(function() {
-	        
-	        /** 表单提交的校验 */
-	        $("#btn").click(function(){
-	        	var title = $("#title").val(); 
-	            var file = $("#file").val();
-	   
-	        	if($.trim(title).length <= 2){
-	        		alert("请输入两个字符以上的标题");
-	        		return ;
-	        	}
-	        	
-	        	//$("#documentForm").submit();
-	        	
-	        })
-	    });
-			
-			
-		</script>
-	</head>
-	<body>
-		<table width="100%" border="0" cellpadding="0" cellspacing="0">
-			 <tr><td height="10"></td></tr>
-			 <tr>
-			    <td width="15" height="32"><img src="../images/main_locleft.gif" width="15" height="32"></td>
-				<td class="main_locbg font2"><img src="../images/pointer.gif">&nbsp;&nbsp;&nbsp;当前位置：文档管理  &gt; 修改文档
-</td>
-				<td width="15" height="32"><img src="../images/main_locright.gif" width="15" height="32"></td>
-			 </tr>
-		</table>
-	
-		<table width="100%" height="90%" border="0" cellpadding="10" cellspacing="0" class="main_tabbor">
-		  	<tr valign="top">
-			    <td>
-			    
-				 
-                        <!-- 隐藏表单，flag表示添加标记 -->
-    	 			<input type="hidden" name="flag" value="2">
-    	 			<input type="hidden" name="id" value="${document.id }">
-				  <table width="100%" border="0" cellpadding="0" cellspacing="10" class="main_tab">
-                        
-					    <tr><td class="font3 fftd">
-					              
-					                
-					                文档标题：<input type="text" name="title" size="30" id="title" value="文件哈"/></td>
-					    </tr>
-						<tr><td class="main_tdbor"></td></tr>
-						
-						
-						<tr><td class="font3 fftd">文档描述：<br/>
-							<textarea name="remark" cols="88" rows="11" id="content">这是一个文件</textarea>
-						</td></tr>
-						<tr><td class="main_tdbor"></td></tr>
-						
-							<tr><td class="font3 fftd">文档：<br/>
-							<input type="file" name="file" id="file"  size="30"/>
-						</td></tr>
-						<tr><td class="main_tdbor"></td></tr>
-						
-                      
-						
-						<tr><td class="font3 fftd">
-								<input type="button" id="btn" value="确定">
-								<input type="reset" value="重置">
-						</td></tr>
-						<tr><td class="main_tdbor"></td></tr>
-					
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+	<title>人事管理系统 ——后台管理</title>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+	<meta http-equiv="pragma" content="no-cache" />
+	<meta http-equiv="cache-control" content="no-cache" />
+	<meta http-equiv="expires" content="0" />
+	<meta http-equiv="keywords" content="keyword1,keyword2,keyword3" />
+	<meta http-equiv="description" content="This is my page" />
+	<link rel="stylesheet" href="https://cdn.staticfile.org/twitter-bootstrap/4.3.1/css/bootstrap.min.css">
+	<script src="https://cdn.staticfile.org/jquery/3.2.1/jquery.min.js"></script>
+	<script src="https://cdn.staticfile.org/popper.js/1.15.0/umd/popper.min.js"></script>
+	<script src="https://cdn.staticfile.org/twitter-bootstrap/4.3.1/js/bootstrap.min.js"></script>
+	<link href="fkjava.ico" rel="shortcut icon" type="image/x-icon" />
+	<link href="../css/css.css" type="text/css" rel="stylesheet" />
+	<script type="text/javascript" th:src="@{../js/jquery-1.11.0.js}" src="../js/jquery-1.11.0.js"></script>
+	<script type="text/javascript" th:src="@{../js/jquery-migrate-1.2.1.js}" src="../js/jquery-migrate-1.2.1.js"></script>
+	<script type="text/javascript" th:src="@{../js/tiny_mce/tiny_mce.js}" src="../js/tiny_mce/tiny_mce.js"></script>
+	<script type="text/javascript" th:src="@{../js/jquery.form.js}" src="../js/jquery.form.js"></script>
+	<script type="text/javascript">
 
-				  </table>
-				  
-				</td>
-		  	</tr>
-		</table>
-		<div style="height:10px;"></div>
-	</body>
+		$(document).ready(function() {
+
+			/** 表单提交的校验 */
+			$("#update").click(function(){
+				var title = $("#title").val();
+				var file = $("#file").val();
+				var detail = $("#detail").val();
+				if($.trim(title).length <= 2){
+					alert("请输入两个字符以上的标题！");
+					return ;
+				}
+				if($.trim(detail).length == 0){
+					alert("请输入适当的文档描述！");
+					return ;
+				}
+				else if(file){
+					alert("本次上传将会覆盖以前的文档！");
+				}
+
+				$("#docForm").submit();
+
+			})
+		});
+
+
+	</script>
+</head>
+<body>
+<table width="100%" border="0" cellpadding="0" cellspacing="0">
+	<tr><td height="10"></td></tr>
+	<tr>
+		<td width="15" height="32"></td>
+		<td class="">
+			<div class="form-horizontal">
+				<span><img src="../images/current_pos.png"></span>
+				<span class="font-weight-bolde">当前位置:</span>
+				<span class="badge badge-pill badge-dark">下载中心</span>
+				<span class="font-weight-bolde"> > </span>
+				<span class="badge badge-pill badge-secondary">文档管理</span>
+				<span class="font-weight-bolde"> > </span>
+				<span class="badge badge-pill badge-light">文档修改</span>
+			</div>
+		</td>
+		<td width="15" height="32"></td>
+	</tr>
+</table>
+
+<table width="100%" height="90%" border="0" cellpadding="10" cellspacing="0" class="main_tabbor">
+	<tr valign="top">
+		<td>
+
+
+			<!-- 隐藏表单，flag表示添加标记 -->
+			<input type="hidden" name="flag" value="2">
+
+			<table width="100%" border="0" cellpadding="0" cellspacing="10" class="main_tab">
+				<form method="post" id="docForm" action="/update" enctype="multipart/form-data">
+					<tr>
+						<!--							<td class="font3 fftd">-->
+						<!--					              -->
+						<!--					                -->
+						<!--					                文档标题：<input type="text" name="title" size="30" id="title"/>-->
+						<!--						</td>-->
+						<div class="input-group input-group-sm mb-3 w-25" style="margin-left: 600px;margin-right: 250px">
+							<div class="input-group-prepend">
+								<span class="input-group-text shadow" id="inputGroup-sizing-sm">文档标题：</span>
+							</div>
+							<input type="text" id="title" th:value="${updateDoc.document_title}" name="title" class="form-control shadow" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-sm">
+						</div>
+					</tr>
+					<tr><td class="main_tdbor"></td></tr>
+
+
+					<tr><td class="font3 fftd">文档描述：<br/>
+						<div class="form-group" style="margin-left: 250px;margin-right: 250px">
+							<textarea th:text="${updateDoc.document_remark}" name="detail" id="detail" class="form-control shadow" rows="10"></textarea>
+						</div>
+					</td></tr>
+					<input type="hidden" th:value="${updateDoc.document_id}" name="DocId" id="DocId">
+					<input type="hidden" th:value="${updateDoc.document_user_id}" name="UserId" id="UserId">
+					<tr><td class="main_tdbor"></td></tr>
+					<tr><td class="font3 fftd">上传文档：<br/>
+						<input type="file" class="btn btn-secondary btn-sm" name="file" id="file"  size="30"/>
+					</td></tr>
+					<tr><td class="main_tdbor"></td></tr>
+					<tr><td class="font3 fftd">
+						<button type="button" class="btn btn-success" id="update">上传</button>
+						<button type="button" class="btn btn-warning" id="reset">重置</button>
+					</td></tr>
+					<tr><td class="main_tdbor"></td></tr>
+
+				</form>
+			</table>
+
+		</td>
+	</tr>
+</table>
+<div style="height:10px;"></div>
+</body>
 </html>

@@ -25,4 +25,6 @@ public interface userServiceInterface {
     void deleteById(Integer id);
 
     List<User> queryByUserNameAndStatus(String UserName, Integer status, int startrow, int num);
+
+    String findNameById(Integer user_id);
 }

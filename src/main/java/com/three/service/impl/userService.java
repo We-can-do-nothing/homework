@@ -58,4 +58,9 @@ public class userService implements userServiceInterface {
     public List<User> queryByUserNameAndStatus(String UserName, Integer status, int startrow, int num) {
         return userMapper.queryByUserNameAndStatus(UserName, status, startrow, num);
     }
+
+    @Override
+    public String findNameById(Integer user_id) {
+        return userMapper.findNameById(user_id);
+    }
 }

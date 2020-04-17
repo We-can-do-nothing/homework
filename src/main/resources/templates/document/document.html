@@ -1,178 +1,297 @@
 
 <!DOCTYPE HTML>
-<html>
+<html xmlns:th="http://www.thymeleaf.org">
 <head>
 	<title>人事管理系统 ——文档管理</title>
 	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 	<meta http-equiv="pragma" content="no-cache" />
 	<meta http-equiv="cache-control" content="no-cache" />
-	<meta http-equiv="expires" content="0" />    
+	<meta http-equiv="expires" content="0" />
 	<meta http-equiv="keywords" content="keyword1,keyword2,keyword3" />
 	<meta http-equiv="description" content="This is my page" />
-	<link href="../css/css.css" type="text/css" rel="stylesheet" />
-	<link href="../css/pager.css" type="text/css" rel="stylesheet" />
-	<script type="text/javascript" src="../js/jquery-1.11.0.js"></script>
-    <script type="text/javascript" src="../js/jquery-migrate-1.2.1.js"></script>
-	<link href="../js/ligerUI/skins/Aqua/css/ligerui-dialog.css" rel="stylesheet" type="text/css" />  
-	<script src="../js/ligerUI/js/core/base.js" type="text/javascript"></script>
-	<script src="../js/ligerUI/js/plugins/ligerDialog.js" type="text/javascript"></script>
-	<script src="../js/ligerUI/js/plugins/ligerDrag.js" type="text/javascript"></script>
-	<script src="../js/ligerUI/js/plugins/ligerResizable.js" type="text/javascript"></script>
-	<script type="text/javascript">
-	    $(function(){
-	    	
-	    	var boxs = $("input[type='checkbox'][id^='box_']");
-	    	/** 给全选按钮绑定点击事件  */
-	    	$("#checkAll").click(function(){
-	    		// this是checkAll  this.checked是true
-	    		// 所有数据行的选中状态与全选的状态一致
-	    		boxs.attr("checked",this.checked);
-	    	})
-	    	
-	    	/** 给每个数据行绑定点击事件：判断如果数据行都选中全选也应该选中，反之  */
-	    	boxs.click(function(event){
-	    		/** 去掉复选按钮的事件传播：点击复选会触发行点击：因为复选在行中 */
-	    		event.stopPropagation();
-	    		
-	    		/** 判断当前选中的数据行有多少个  */
-	    		var checkedBoxs = boxs.filter(":checked");
-	    		/** 判断选中的总行数是否等于总行数：以便控制全选按钮的状态   */
-	    		$("#checkAll").attr("checked",checkedBoxs.length == boxs.length);
-	    	})
-	    	
-	    	/** 给数据行绑定鼠标覆盖以及鼠标移开事件  */
-	    	$("tr[id^='data_']").hover(function(){
-	    		$(this).css("backgroundColor","#eeccff");
-	    	},function(){
-	    		$(this).css("backgroundColor","#ffffff");
-	    	}).click(function(){
-	    		/** 控制该行是否需要被选中 */
-	    		/** 获取此行的复选框id */
-	    		var checkboxId = this.id.replace("data_","box_");
-	    		
-	    		/** 触发本行的复选点击 */
-	    		$("#"+checkboxId).trigger("click");
-	    	})
-	    	
-	    	/** 删除员工绑定点击事件 */
-	 	   $("#delete").click(function(){
-	 		   /** 获取到用户选中的复选框  */
-	 		   var checkedBoxs = boxs.filter(":checked");
-	 		   if(checkedBoxs.length < 1){
-	 			   $.ligerDialog.error("请选择一个需要删除的文档！");
-	 		   }else{
-	 			   /** 得到用户选中的所有的需要删除的ids */
-	 			   var ids = checkedBoxs.map(function(){
-	 				   return this.value;
-	 			   })
-	 			   
-	 			   $.ligerDialog.confirm("确认要删除吗?","删除文档",function(r){
-	 				   if(r){
-	 					   // alert("删除："+ids.get());
-	 					   // 发送请求
-	 					  // window.location = "${ctx }/document/removeDocument?ids=" + ids.get();
-	 				   }
-	 			   });
-	 		   }
-	 	   })
-	    	
-	    	/** 下载文档功能 */
-	    	$("a[id^='down_']").click(function(){
-	    		/** 得到需要下载的文档的id */
-	    		var id = this.id.replace("down_","");
-	    		/** 下载该文档 */
-	    		//window.location = ""+id;
-	    	})
-	    	
-	    	
-	    	
-	    })
-	    
-	    function down(id){
-	    	$("a[id='down_"+id+"']").trigger("click");
-	    }
-	    
+	<link rel="stylesheet" href="https://cdn.staticfile.org/twitter-bootstrap/4.3.1/css/bootstrap.min.css">
+	<script src="https://cdn.staticfile.org/jquery/3.2.1/jquery.min.js"></script>
+	<script src="https://cdn.staticfile.org/popper.js/1.15.0/umd/popper.min.js"></script>
+	<script src="https://cdn.staticfile.org/twitter-bootstrap/4.3.1/js/bootstrap.min.js"></script>
+	<link th:href="@{../css/css.css}" href="../css/css.css" type="text/css" rel="stylesheet" />
+	<link th:href="@{../css/pager.css}" href="../css/pager.css" type="text/css" rel="stylesheet" />
+	<script type="text/javascript" th:src="@{../js/jquery-1.11.0.js}" src="../js/jquery-1.11.0.js"></script>
+	<script type="text/javascript" th:src="@{../js/jquery-migrate-1.2.1.js}" src="../js/jquery-migrate-1.2.1.js"></script>
+	<link th:href="@{../js/ligerUI/skins/Aqua/css/ligerui-dialog.css}" href="../js/ligerUI/skins/Aqua/css/ligerui-dialog.css"rel="stylesheet" type="text/css" />
+	<script th:src="@{../js/ligerUI/js/core/base.js}" src="../js/ligerUI/js/core/base.js" type="text/javascript"></script>
+	<script th:src="@{../js/ligerUI/js/plugins/ligerDialog.js}" src="../js/ligerUI/js/plugins/ligerDialog.js" type="text/javascript"></script>
+	<script th:src="@{../js/ligerUI/js/plugins/ligerDrag.js}" src="../js/ligerUI/js/plugins/ligerDrag.js" type="text/javascript"></script>
+	<script th:src="@{../js/ligerUI/js/plugins/ligerResizable.js}" src="../js/ligerUI/js/plugins/ligerResizable.js" type="text/javascript"></script>
+	<script th:inline="javascript">
+		function download111(DocId){
+			window.location.href = "/document/download?DocId=" + DocId;
+			// $.ajax({
+			// 	type: "GET",
+			// 	url: "/document/download?DocId=" + DocId,
+			// 	async: true,
+			// 	contentType: "application/json;charset=UTF-8",
+			// 	error: function (XMLHttpRequest, textStatus, errorThrown) {
+			// 		alert("出错了，请于管理员联系");
+			// 	},
+			// 	success: function (json) {
+			// 		if (json!== "success") {
+			// 			$.ligerDialog.success(json);
+			// 		} else {
+			// 			window.parent.location.reload();
+			// 		}
+			// 	}
+			// });
+		}
+
+		function summit(id){
+			var url = '/doc/showDocPage?cpage=' + id;
+			$.ajax({
+				url: url,
+				type: 'POST',
+				success: function (data) {
+					$("#tableList").html(data);
+					var idName = "#btn"+id;
+					$(idName).removeClass("btn-light").addClass("btn-primary");
+				}
+			})
+		}
+
+		function searchDoc(){
+			var title = $("#fileTitle").val();
+			var url = '/doc/docSearch?fileTitle=' + title;
+			$.ajax({
+				url: url,
+				type: 'POST',
+				success: function (data) {
+					$("#tableList").html(data);
+				}
+			})
+		}
+
+		function updateCheck(userId, DocId){
+			var currentUserId = $('#currentUserId').val();
+			// alert("currentUserId: "+currentUserId+"  userId："+userId);
+			// alert("你点击了修改！ DocID为："+DocId+"  userId为："+userId+"  currentUserId："+currentUserId)
+			if(userId!=currentUserId){
+				$.ligerDialog.error("暂时无权限修改他人的文档！")
+				return;
+			}
+			window.location.href = "/document/showUpdateDocument.html?document_id=" + DocId;
+		}
+
+		$(function(){
+
+			var boxs = $("input[type='checkbox'][id^='box_']");
+
+			/** 给全选按钮绑定点击事件  */
+			$("#checkAll").click(function(){
+				// this是checkAll  this.checked是true
+				// 所有数据行的选中状态与全选的状态一致
+				boxs.attr("checked",this.checked);
+			})
+
+			/** 给每个数据行绑定点击事件：判断如果数据行都选中全选也应该选中，反之  */
+			boxs.click(function(event){
+				/** 去掉复选按钮的事件传播：点击复选会触发行点击：因为复选在行中 */
+				event.stopPropagation();
+
+				/** 判断当前选中的数据行有多少个  */
+				var checkedBoxs = boxs.filter(":checked");
+				/** 判断选中的总行数是否等于总行数：以便控制全选按钮的状态   */
+				$("#checkAll").attr("checked",checkedBoxs.length == boxs.length);
+			})
+
+			/** 给数据行绑定鼠标覆盖以及鼠标移开事件  */
+			$("tr[id^='data_']").hover(function(){
+				$(this).css("backgroundColor","#eeccff");
+			},function(){
+				$(this).css("backgroundColor","#ffffff");
+			}).click(function(){
+				/** 控制该行是否需要被选中 */
+				/** 获取此行的复选框id */
+				var checkboxId = this.id.replace("data_","box_");
+
+				/** 触发本行的复选点击 */
+				$("#"+checkboxId).trigger("click");
+			})
+
+			/** 删除员工绑定点击事件 */
+			$("#delete").click(function(){
+				/** 获取到用户选中的复选框  */
+				var checkedBoxs = boxs.filter(":checked");
+				if(checkedBoxs.length < 1){
+					$.ligerDialog.error("请选择一个需要删除的文档！");
+				}else{
+					/** 得到用户选中的所有的需要删除的ids */
+					var ids = checkedBoxs.map(function(){
+						return this.value;
+					})
+
+					$.ligerDialog.confirm("确认要删除吗?","删除文档",function(r){
+						if(r){
+							$.ajax({
+								type: "POST",
+								url: "/doc/removeDoc?ids=" + ids.get(),
+								async: true,
+								contentType: "application/json;charset=UTF-8",
+								error: function (XMLHttpRequest, textStatus, errorThrown) {
+									alert("消息", "出错了，请于管理员联系");
+								},
+								success: function (json) {
+									if (json!== "success") {
+										$.ligerDialog.error(json);
+									} else {
+										var idss = ids.get().toString();
+										var idss = idss.split(",");
+										for (var i = 0; i < idss.length; i++) {
+											$("#data_" + idss[i]).fadeOut("fast");
+										}
+									}
+								}
+							});
+						}
+					});
+				}
+			})
+
+			/** 下载文档功能 */
+			$("a[id^='down_']").click(function(){
+				/** 得到需要下载的文档的id */
+				var id = this.id.replace("down_","");
+				/** 下载该文档 */
+				//window.location = ""+id;
+			})
+		})
+
+
 	</script>
 </head>
 <body>
-	<!-- 导航 -->
-	<table width="100%" border="0" cellpadding="0" cellspacing="0">
-	  <tr><td height="10"></td></tr>
-	  <tr>
-	    <td width="15" height="32"><img src="../images/main_locleft.gif" width="15" height="32"></td>
-		<td class="main_locbg font2"><img src="../images/pointer.gif">&nbsp;&nbsp;&nbsp;当前位置：文档管理 &gt; 文档查询</td>
-		<td width="15" height="32"><img src="../images/main_locright.gif" width="15" height="32"></td>
-	  </tr>
-	</table>
-	
-	<table width="100%" height="90%" border="0" cellpadding="5" cellspacing="0" class="main_tabbor">
-	  <!-- 查询区  -->
-	  <tr valign="top">
-	    <td height="30">
-		  <table width="100%" border="0" cellpadding="0" cellspacing="10" class="main_tab">
-		    <tr>
-			  <td class="fftd">
-			  	
-				    <table width="100%" border="0" cellpadding="0" cellspacing="0">
-					  <tr>
-					    <td class="font3">
-					    	标题：<input type="text" name="title" />
-					    	<input type="submit"  value="搜索"/>
-					    	<input type="button" id="delete" value="删除">
-					    </td>
-					  </tr>
-					</table>
-				
-			  </td>
-			</tr>
-		  </table>
+<!-- 导航 -->
+<table width="100%" border="0" cellpadding="0" cellspacing="0">
+	<tr><td height="10"></td></tr>
+	<tr>
+		<td width="15" height="32"></td>
+		<td class="">
+			<div class="form-horizontal">
+				<span><img src="/images/current_pos.png"></span>
+				<span class="font-weight-bolde">当前位置:</span>
+				<span class="badge badge-pill badge-dark">下载中心</span>
+				<span class="font-weight-bolde"> > </span>
+				<span class="badge badge-pill badge-secondary">文档管理</span>
+			</div>
 		</td>
-	  </tr>
-	  
-	  <!-- 数据展示区 -->
-	  <tr valign="top">
-	    <td height="20">
-		  <table width="100%" border="1" cellpadding="5" cellspacing="0" style="border:#c2c6cc 1px solid; border-collapse:collapse;">
-		    <tbody><tr class="main_trbg_tit" align="center">
-		      <td><input type="checkbox" id="checkAll"></td>
-			  <td>标题</td>
-			  <td>创建时间</td>
-			  <td>创建人</td>
-			  <td>描述</td>
-			  	
-			  <td>操作</td>
-			  
-			  <td>下载</td>
-			</tr>
-			
-				<tr ondblclick="down(7);" class="main_trbg" align="center" id="data_0" style="background-color: rgb(255, 255, 255);">
-					<td><input type="checkbox" id="box_0" value="7"></td>
-					 <td>文件哈</td>
-					 <td>
-					  	2019年4月6日
-					  </td>
-					  <td>songyq</td>
-					  <td>这是一个文件</td>
-					  	
-					 <td align="center" width="40px;"><a href="showUpdateDocument.html">
-							<img title="修改" src="../images/update.gif"></a>
-					  </td>
-					  
-					  <td align="center" width="40px;"><a href="#" id="down_7">
-							<img width="20" height="20" title="下载" src="../images/downLoad.png"></a>
-					  </td>
-				</tr>
-			
-			 
+		<td width="15" height="32"></td>
+	</tr>
+</table>
 
-		  </tbody></table>
+<table width="100%" height="90%" border="0" cellpadding="5" cellspacing="0" class="main_tabbor">
+	<!-- 查询区  -->
+	<tr valign="top">
+		<td height="30">
+			<table width="100%" border="0" cellpadding="0" cellspacing="10" class="main_tab">
+				<tr>
+					<td class="fftd">
+
+						<table width="100%" border="0" cellpadding="0" cellspacing="0">
+							<tr>
+								<td class="font3">
+									<!--					    	标题：<input type="text" name="title" />-->
+									<!--					    	<input class="btn btn-primary btn-sm" type="submit"  value="搜索"/>-->
+									<!--					    	<input class="btn btn-danger btn-sm" type="button" id="delete" value="删除">-->
+									<div class="input-group w-25 p-1 hor-menu">
+										<input type="text" id="fileTitle" class="form-control shadow-sm bg-white rounded" placeholder="请输入搜索的标题" aria-describedby="button-addon4">
+										<div class="" id="button-addon4">
+											<button onclick="searchDoc()" class="btn btn-primary btn-sm m-1" type="button">搜索</button>
+											<button id="delete" class="btn btn-danger btn-sm m-1" type="button">删除</button>
+										</div>
+									</div>
+								</td>
+							</tr>
+						</table>
+
+					</td>
+				</tr>
+			</table>
 		</td>
-	  </tr>
-	  <!-- 分页标签 -->
-	  <tr valign="top"><td align="center" class="font3">
-	  	   <table width="100%" align="center" style="font-size:13px;" class="flickr"><tbody><tr><td style="COLOR: #0061de; MARGIN-RIGHT: 3px; PADDING-TOP: 2px; TEXT-DECORATION: none"><span class="disabled">上一页</span><span class="current">1</span><span class="disabled">下一页</span>&nbsp;跳转到&nbsp;&nbsp;<input style="text-align: center;BORDER-RIGHT: #aaaadd 1px solid; PADDING-RIGHT: 5px; BORDER-TOP: #aaaadd 1px solid; PADDING-LEFT: 5px; PADDING-BOTTOM: 2px; MARGIN: 2px; BORDER-LEFT: #aaaadd 1px solid; COLOR: #000099; PADDING-TOP: 2px; BORDER-BOTTOM: #aaaadd 1px solid; TEXT-DECORATION: none" type="text" size="2" id="pager_jump_page_size">&nbsp;<input type="button" style="text-align: center;BORDER-RIGHT: #dedfde 1px solid; PADDING-RIGHT: 6px; BACKGROUND-POSITION: 50% bottom; BORDER-TOP: #dedfde 1px solid; PADDING-LEFT: 6px; PADDING-BOTTOM: 2px; BORDER-LEFT: #dedfde 1px solid; COLOR: #0061de; MARGIN-RIGHT: 3px; PADDING-TOP: 2px; BORDER-BOTTOM: #dedfde 1px solid; TEXT-DECORATION: none" value="确定" id="pager_jump_btn"></td></tr><tr align="center"><td style="font-size:13px;"></td></tr><tr><td style="COLOR: #0061de; MARGIN-RIGHT: 3px; PADDING-TOP: 2px; TEXT-DECORATION: none">总共<font color="red">1</font>条记录，当前显示1-1条记录。</td></tr></tbody></table>
-	  </td></tr>
-	</table>
-	<div style="height:10px;"></div>
+	</tr>
+</table>
+
+<div class="tableList" id="tableList" th:fragment="pageHtml">
+	<!-- 数据展示区 -->
+	<tr valign="top">
+		<td height="20">
+			<table class="table table-hover" width="100%" border="1" cellpadding="5" cellspacing="0">
+				<tbody><tr class="main_trbg_tit" align="center">
+					<td><div class="checkbox"><input type="checkbox" id="checkAll"></div></td>
+					<td>标题</td>
+					<td>创建时间</td>
+					<td>创建人</td>
+					<td>描述</td>
+					<td width="70px;">操作</td>
+					<td width="70px">下载</td>
+				</tr>
+				<input type="hidden" th:value="${currentUserId}" name="currentUserId" id="currentUserId">
+
+				<tr th:each="doc,state:${page.rows}" th:id="'data_' + ${doc.document_id}" class="main_trbg" align="center" id="data_0" style="background-color: rgb(255, 255, 255);">
+					<form method="post" id="docForm" action="/download" enctype="multipart/form-data">
+						<td><input type="checkbox" th:id="'box_' + ${doc.document_id}" th:value="${doc.document_id}"></td>
+						<td th:text="${doc.document_title}" id="title" name="title"></td>
+					</form>
+					<td th:text="${doc.document_create_time}"></td>
+					<td th:text="${hashmap.get(doc.document_user_id)}"></td>
+					<td th:text="${doc.document_remark}"></td>
+
+					<!--					 <td align="center" width="40px;"><a id="updateHref" name="updateHref" th:href="@{'showUpdateDocument.html?document_id=' + ${doc.document_id}}">-->
+					<td align="center" width="40px;"><a id="updateHref" name="updateHref" th:onclick="'updateCheck('+${doc.document_user_id}+','+${doc.document_id}+')'">
+						<img title="修改" src="../images/update.png"></a>
+					</td>
+
+					<td align="center" width="40px;"><a id="down_7">
+						<img width="20" height="20" id="download" th:onclick="'download111('+${doc.document_id} + ')'" name="download" title="下载" th:src="@{../images/down.png}"></a>
+					</td>
+				</tr>
+
+				</tbody></table>
+		</td>
+	</tr>
+	<!-- 分页标签 -->
+<div align="center">
+
+	<!--        首页更改-->
+	<button type="button" class="btn btn-light" th:text="首页"
+			th:onclick="${page.isFirstPage}==true?'': 'summit(1)'"></button>
+
+	<button type="button" class="btn btn-light" th:onclick="${page.isFirstPage}==true?'': 'summit('+${page.current - 1} + ')'"
+			th:text="上一页"
+	></button>
+
+	<!-- 如果前面页码没有显示完则显示省略号 -->
+	<a th:if="${page.navigateFirstPage > 1}"><strong>...</strong></a>
+
+	<!-- 显示导航页码 -->
+
+	<th:block th:each="i: ${page.navigatepageNums}">
+		<button type="button" class="btn btn-light" th:classappend="${page.current == i} ? 'btn-primary'"
+				th:onclick="'summit(' + ${i} + ')'" th:text="${i}" th:id="'btn'+${i}"
+		></button>
+	</th:block>
+
+
+	<!-- 如果后面页码没有显示完则显示省略号 -->
+	<a th:if="${page.navigateLastPage < page.totalPages}"><strong>...</strong></a>
+
+	<!-- 如果是末页，disable下一页和末页-->
+	<button type="button" class="btn btn-light" th:onclick="${page.isLastPage}==true?'': 'summit('+${page.current + 1} + ')'"
+			th:text="下一页"
+	></button>
+
+	<button type="button" class="btn btn-light" th:onclick="${page.isLastPage}==true?'': 'summit('+${page.totalPages} + ')'"
+			th:text="尾页"
+	></button>
+</div>
+</div>
+
+<div style="height:10px;"></div>
 </body>
 </html>

@@ -39,6 +39,9 @@ public interface UserMapperInterface {
     @Select("select * from User where user_id = #{user_id}")
     User findById(@Param("user_id") int user_id);
 
+    @Select("select Loginname from User where user_id = #{user_id}")
+    String findNameById(@Param("user_id") Integer user_id);
+
     @Update("update User set password = #{newPassword} where user_id = #{user_id}")
     void updatePasswordById( @Param("user_id") Integer user_id, @Param("newPassword") String newPassword);
 
