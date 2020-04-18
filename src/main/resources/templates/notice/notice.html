@@ -9,18 +9,29 @@
     <meta http-equiv="expires" content="0"/>
     <meta http-equiv="keywords" content="keyword1,keyword2,keyword3"/>
     <meta http-equiv="description" content="This is my page"/>
-    <link href="../css/css.css" type="text/css" rel="stylesheet"/>
-    <link rel="stylesheet" type="text/css" href="../js/ligerUI/skins/Aqua/css/ligerui-dialog.css"/>
-    <link href="../js/ligerUI/skins/ligerui-icons.css" rel="stylesheet" type="text/css"/>
-    <script type="text/javascript" src="../js/jquery-1.11.0.js"></script>
-    <script type="text/javascript" src="../js/jquery-migrate-1.2.1.js"></script>
-    <script src="../js/ligerUI/js/core/base.js" type="text/javascript"></script>
-    <script src="../js/ligerUI/js/plugins/ligerDrag.js" type="text/javascript"></script>
-    <script src="../js/ligerUI/js/plugins/ligerDialog.js" type="text/javascript"></script>
-    <script src="../js/ligerUI/js/plugins/ligerResizable.js" type="text/javascript"></script>
-    <link href="../css/pager.css" type="text/css" rel="stylesheet"/>
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.4.1/dist/css/bootstrap.min.css">
-    <script type="text/javascript">
+    <link th:href="@{../css/css.css}" type="text/css" rel="stylesheet"/>
+    <link rel="stylesheet" type="text/css" th:href="@{../js/ligerUI/skins/Aqua/css/ligerui-dialog.css}"/>
+    <link th:href="@{../js/ligerUI/skins/ligerui-icons.css}" rel="stylesheet" type="text/css"/>
+    <link rel="stylesheet" href="https://cdn.staticfile.org/twitter-bootstrap/4.3.1/css/bootstrap.min.css">
+    <script src="https://cdn.staticfile.org/jquery/3.2.1/jquery.min.js"></script>
+    <script src="https://cdn.staticfile.org/popper.js/1.15.0/umd/popper.min.js"></script>
+    <script src="https://cdn.staticfile.org/twitter-bootstrap/4.3.1/js/bootstrap.min.js"></script>
+    <link th:href="@{../css/css.css}" href="../css/css.css" type="text/css" rel="stylesheet"/>
+    <link th:href="@{../css/pager.css}" href="../css/pager.css" type="text/css" rel="stylesheet"/>
+    <script type="text/javascript" th:src="@{../js/jquery-1.11.0.js}" src="../js/jquery-1.11.0.js"></script>
+    <script type="text/javascript" th:src="@{../js/jquery-migrate-1.2.1.js}"
+            src="../js/jquery-migrate-1.2.1.js"></script>
+    <link th:href="@{../js/ligerUI/skins/Aqua/css/ligerui-dialog.css}"
+          href="../js/ligerUI/skins/Aqua/css/ligerui-dialog.css" rel="stylesheet" type="text/css"/>
+    <script th:src="@{../js/ligerUI/js/core/base.js}" src="../js/ligerUI/js/core/base.js"
+            type="text/javascript"></script>
+    <script th:src="@{../js/ligerUI/js/plugins/ligerDialog.js}" src="../js/ligerUI/js/plugins/ligerDialog.js"
+            type="text/javascript"></script>
+    <script th:src="@{../js/ligerUI/js/plugins/ligerDrag.js}" src="../js/ligerUI/js/plugins/ligerDrag.js"
+            type="text/javascript"></script>
+    <script th:src="@{../js/ligerUI/js/plugins/ligerResizable.js}" src="../js/ligerUI/js/plugins/ligerResizable.js"
+            type="text/javascript"></script>
+    <script th:inline="javascript">
 
         function searchNotice() {
             var title = $("#noticeTitle").val();
@@ -35,14 +46,14 @@
             })
         }
 
-        function summit(id){
+        function summit(id) {
             var url = '/notice/showNoticePage?cpage=' + id;
             $.ajax({
                 url: url,
                 type: 'POST',
                 success: function (data) {
                     $("#tableList").html(data);
-                    var idName = "#btn"+id;
+                    var idName = "#btn" + id;
                     $(idName).removeClass("btn-light").addClass("btn-primary");
                 }
             })
@@ -105,7 +116,7 @@
                                     alert("消息", "出错了，请于管理员联系");
                                 },
                                 success: function (json) {
-                                    if (json!== "success") {
+                                    if (json !== "success") {
                                         $.ligerDialog.error(json);
                                     } else {
                                         var idss = ids.get().toString();
@@ -130,9 +141,17 @@
         <td height="10"></td>
     </tr>
     <tr>
-        <td width="15" height="32"><img src="../images/main_locleft.gif" width="15" height="32"></td>
-        <td class="main_locbg font2"><img src="../images/pointer.gif">&nbsp;&nbsp;&nbsp;当前位置：公告管理 &gt; 公告查询</td>
-        <td width="15" height="32"><img src="../images/main_locright.gif" width="15" height="32"></td>
+        <td width="15" height="32"></td>
+        <td class="">
+            <div class="form-horizontal">
+                <span><img src="../images/current_pos.png"></span>
+                <span class="font-weight-bolde">当前位置:</span>
+                <span class="badge badge-pill badge-dark">公告管理</span>
+                <span class="font-weight-bolde"> > </span>
+                <span class="badge badge-pill badge-secondary">公告查询</span>
+            </div>
+        </td>
+        <td width="15" height="32"></td>
     </tr>
 </table>
 
@@ -147,10 +166,26 @@
                         <table width="100%" border="0" cellpadding="0" cellspacing="0">
                             <tr>
                                 <td class="font3">
-                                    公告名称：<input type="text" id="noticeTitle" name="title">
-                                    公告内容：<input type="text" id="noticeContent" name="content">
-                                    <input type="button" onclick="searchNotice()" value="搜索"/>
-                                    <input id="delete" type="button" value="删除"/>
+                                    <div class="input-group w-25 p-1 hor-menu">
+                                        <input type="text" id="noticeTitle" name="title"
+                                               class="form-control shadow bg-white rounded" placeholder="请输入公告名称"
+                                               aria-describedby="button-addon4" style="margin-right: 10px">
+                                        <input type="text" id="noticeContent" name="content"
+                                               class="form-control shadow bg-white rounded" placeholder="请输入公告内容"
+                                               aria-describedby="button-addon4">
+                                        <div class="" id="button-addon4">
+                                            <button onclick="searchNotice()" class="btn btn-primary btn-sm shadow"
+                                                    type="button" style="margin-left: 15px; margin-top: 5px">搜索
+                                            </button>
+                                            <button id="delete" class="btn btn-danger btn-sm shadow" type="button"
+                                                    style="margin-top: 5px">删除
+                                            </button>
+                                        </div>
+                                    </div>
+                                    <!--                                    公告名称：<input type="text" id="noticeTitle" name="title">-->
+                                    <!--                                    公告内容：<input type="text" id="noticeContent" name="content">-->
+                                    <!--                                    <input type="button" onclick="searchNotice()" value="搜索"/>-->
+                                    <!--                                    <input id="delete" type="button" value="删除"/>-->
                                 </td>
                             </tr>
                         </table>
@@ -191,12 +226,13 @@
 
                     <td align="center" width="40px;"><a
                             th:href="'showUpdateNotice.html?notice_id=' + ${notice.notice_id}">
-                        <img title="修改" src="../images/update.gif"></a>
+                        <img title="修改" src="../images/update.png"></a>
                     </td>
 
                     <td align="center" width="40px;"><a
-                                                        id="prev_19">
-                        <img th:onclick="'preview(' + ${notice.notice_id} + ')'" title="预览" src="../images/prev.gif"></a>
+                            id="prev_19">
+                        <img th:onclick="'preview(' + ${notice.notice_id} + ')'" title="预览"
+                             src="../images/prev.png"></a>
                     </td>
                 </tr>
 

@@ -158,19 +158,17 @@ h1 {
   				$.ajax({
   					type:"post",
   					url:"/user/faceLogin",
-					data:base,
+					data: JSON.stringify({base:base}),
 					contentType: "application/json;charset=UTF-8",
-					dataType:"json",
+					dataType: "json",
+					error: function (XMLHttpRequest, textStatus, errorThrown) {
+						$.MsgBox.Alert("消息","服务器出错");
+					},
   					success:function(json){ // 此处的json是返回的数据
-  						if(json=0){
-  							$.MsgBox.Alert("消息","登录失败");
-  						}else{
-  							window.parent.location.replace("../main.html");
-  						}
+  						if (json.success)
+							window.parent.location.replace("../main.html");
 					}
 				});
-				
-				// window.parent.location.replace("../main.html");
 			}
 			function getBase64() {
 				var imgSrc = document.getElementById("canvas").toDataURL();

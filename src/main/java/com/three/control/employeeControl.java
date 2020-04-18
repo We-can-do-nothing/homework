@@ -54,6 +54,17 @@ public class employeeControl {
         map.addAttribute("url","showall");
         List<Job> jobs = employeeService.selectJob();
         List<department> departments = employeeService.selectDept();
+
+        HashMap<Integer, String> jobMap = new HashMap<Integer, String>();
+        for (Job job:jobs)
+            jobMap.put(job.getJob_id(), job.getJob_name());
+        map.addAttribute("jobMap",jobMap);
+
+        HashMap<Integer, String> deptMap = new HashMap<Integer, String>();
+        for (department dept:departments)
+            jobMap.put(dept.getDepart_id(), dept.getDepart_name());
+        map.addAttribute("deptMap",deptMap);
+
         map.addAttribute("jobs", jobs);
         map.addAttribute("departments", departments);
         map.addAttribute("urlPara","cpage");
@@ -86,6 +97,17 @@ public class employeeControl {
         modelAndView.addObject("page", page);
         List<Job> jobs = employeeService.selectJob();
         List<department> departments = employeeService.selectDept();
+
+        HashMap<Integer, String> jobMap = new HashMap<Integer, String>();
+        for (Job job:jobs)
+            jobMap.put(job.getJob_id(), job.getJob_name());
+        modelAndView.addObject("jobMap",jobMap);
+
+        HashMap<Integer, String> deptMap = new HashMap<Integer, String>();
+        for (department dept:departments)
+            jobMap.put(dept.getDepart_id(), dept.getDepart_name());
+        modelAndView.addObject("deptMap",deptMap);
+
         modelAndView.addObject("jobs", jobs);
         modelAndView.addObject("departments", departments);
         modelAndView.addObject("url","showall");
@@ -114,6 +136,17 @@ public class employeeControl {
         List<department> departments = employeeService.selectDept();
         modelAndView.addObject("jobs", jobs);
         modelAndView.addObject("departments", departments);
+
+        HashMap<Integer, String> jobMap = new HashMap<Integer, String>();
+        for (Job job:jobs)
+            jobMap.put(job.getJob_id(), job.getJob_name());
+        modelAndView.addObject("jobMap",jobMap);
+
+        HashMap<Integer, String> deptMap = new HashMap<Integer, String>();
+        for (department dept:departments)
+            jobMap.put(dept.getDepart_id(), dept.getDepart_name());
+        modelAndView.addObject("deptMap",deptMap);
+
         modelAndView.addObject("url","showall");
         modelAndView.addObject("urlPara","cpage");
         return modelAndView;

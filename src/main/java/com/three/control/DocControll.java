@@ -248,7 +248,10 @@ public class DocControll {
             if( searchFilename.equals(TrxFiles[index].getName()) ){
                 System.out.println(TrxFiles[index].getName());
                 //设置文件路径
-                File file = new File(filePath+"\\"+searchFilename);
+//                File file = new File(filePath+"\\"+searchFilename);
+
+//                服务器路径写法
+                File file = new File(filePath+"/"+searchFilename);
                 if (file.exists()) {
                     response.setContentType("application/force-download");// 设置强制下载不打开
                     response.addHeader("Content-Disposition", "attachment;fileName=" + docService.getDocByDocId(Integer.parseInt(DocId)).getDocument_filename());// 设置文件名

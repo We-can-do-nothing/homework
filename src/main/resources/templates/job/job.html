@@ -1,7 +1,7 @@
 
 <!DOCTYPE HTML>
 <html xmlns:th="http://www.thymeleaf.org"
-xmlns="http://www.w3.org/1999/xhtml">
+	  xmlns="http://www.w3.org/1999/xhtml">
 <head>
 	<title>人事管理系统 ——职位管理</title>
 	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
@@ -10,18 +10,29 @@ xmlns="http://www.w3.org/1999/xhtml">
 	<meta http-equiv="expires" content="0" />    
 	<meta http-equiv="keywords" content="keyword1,keyword2,keyword3" />
 	<meta http-equiv="description" content="This is my page" />
-	<link href="../css/css.css" type="text/css" rel="stylesheet" />
-	<link rel="stylesheet" type="text/css" href="../js/ligerUI/skins/Aqua/css/ligerui-dialog.css"/>
-	<link href="../js/ligerUI/skins/ligerui-icons.css" rel="stylesheet" type="text/css" />
-	<script type="text/javascript" src="../js/jquery-1.11.0.js"></script>
-    <script type="text/javascript" src="../js/jquery-migrate-1.2.1.js"></script>
-	<script src="../js/ligerUI/js/core/base.js" type="text/javascript"></script>
-	<script src="../js/ligerUI/js/plugins/ligerDrag.js" type="text/javascript"></script> 
-	<script src="../js/ligerUI/js/plugins/ligerDialog.js" type="text/javascript"></script>
-	<script src="../js/ligerUI/js/plugins/ligerResizable.js" type="text/javascript"></script>
-	<link href="../css/pager.css" type="text/css" rel="stylesheet" />
-	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.4.1/dist/css/bootstrap.min.css">
-	<script type="text/javascript">
+	<link th:href="@{../css/css.css}" type="text/css" rel="stylesheet"/>
+	<link rel="stylesheet" type="text/css" th:href="@{../js/ligerUI/skins/Aqua/css/ligerui-dialog.css}"/>
+	<link th:href="@{../js/ligerUI/skins/ligerui-icons.css}" rel="stylesheet" type="text/css"/>
+	<link rel="stylesheet" href="https://cdn.staticfile.org/twitter-bootstrap/4.3.1/css/bootstrap.min.css">
+	<script src="https://cdn.staticfile.org/jquery/3.2.1/jquery.min.js"></script>
+	<script src="https://cdn.staticfile.org/popper.js/1.15.0/umd/popper.min.js"></script>
+	<script src="https://cdn.staticfile.org/twitter-bootstrap/4.3.1/js/bootstrap.min.js"></script>
+	<link th:href="@{../css/css.css}" href="../css/css.css" type="text/css" rel="stylesheet"/>
+	<link th:href="@{../css/pager.css}" href="../css/pager.css" type="text/css" rel="stylesheet"/>
+	<script type="text/javascript" th:src="@{../js/jquery-1.11.0.js}" src="../js/jquery-1.11.0.js"></script>
+	<script type="text/javascript" th:src="@{../js/jquery-migrate-1.2.1.js}"
+			src="../js/jquery-migrate-1.2.1.js"></script>
+	<link th:href="@{../js/ligerUI/skins/Aqua/css/ligerui-dialog.css}"
+		  href="../js/ligerUI/skins/Aqua/css/ligerui-dialog.css" rel="stylesheet" type="text/css"/>
+	<script th:src="@{../js/ligerUI/js/core/base.js}" src="../js/ligerUI/js/core/base.js"
+			type="text/javascript"></script>
+	<script th:src="@{../js/ligerUI/js/plugins/ligerDialog.js}" src="../js/ligerUI/js/plugins/ligerDialog.js"
+			type="text/javascript"></script>
+	<script th:src="@{../js/ligerUI/js/plugins/ligerDrag.js}" src="../js/ligerUI/js/plugins/ligerDrag.js"
+			type="text/javascript"></script>
+	<script th:src="@{../js/ligerUI/js/plugins/ligerResizable.js}" src="../js/ligerUI/js/plugins/ligerResizable.js"
+			type="text/javascript"></script>
+	<script th:inline="javascript">
 
 		function summit(id){
 			var url = '/job/showJobPage?cpage=' + id;
@@ -112,11 +123,19 @@ xmlns="http://www.w3.org/1999/xhtml">
 	<!-- 导航 -->
 	<table width="100%" border="0" cellpadding="0" cellspacing="0">
 	  <tr><td height="10"></td></tr>
-	  <tr>
-	    <td width="15" height="32"><img src="../images/main_locleft.gif" width="15" height="32"></td>
-		<td class="main_locbg font2"><img src="../images/pointer.gif">&nbsp;&nbsp;&nbsp;当前位置：职位管理 &gt; 职位查询</td>
-		<td width="15" height="32"><img src="../images/main_locright.gif" width="15" height="32"></td>
-	  </tr>
+		<tr>
+			<td width="15" height="32"></td>
+			<td class="">
+				<div class="form-horizontal">
+					<span><img src="../images/current_pos.png"></span>
+					<span class="font-weight-bolde">当前位置:</span>
+					<span class="badge badge-pill badge-dark">职位管理</span>
+					<span class="font-weight-bolde"> > </span>
+					<span class="badge badge-pill badge-secondary">职位查询</span>
+				</div>
+			</td>
+			<td width="15" height="32"></td>
+		</tr>
 	</table>
 	
 	<table width="100%" height="90%" border="0" cellpadding="5" cellspacing="0" class="main_tabbor">
@@ -129,11 +148,18 @@ xmlns="http://www.w3.org/1999/xhtml">
 			  	
 				    <table width="100%" border="0" cellpadding="0" cellspacing="0">
 					  <tr>
-					    <td class="font3">
-					    	职位名称：<input type="text" id="jobName" name="name">
-					    	 <input type="submit" onclick="searchJob()" value="搜索"/>
-					    	<input id="delete" type="button" value="删除"/>
-					    </td>
+<!--					    <td class="font3">-->
+<!--					    	职位名称：<input type="text" id="jobName" name="name">-->
+<!--					    	 <input type="submit" onclick="searchJob()" value="搜索"/>-->
+<!--					    	<input id="delete" type="button" value="删除"/>-->
+<!--					    </td>-->
+						  <div class="input-group w-25 p-1 hor-menu">
+							  <input type="text"  id="jobName" name="name" class="form-control input-sm shadow bg-white rounded" placeholder="请输入搜索的职位名称" aria-describedby="button-addon4">
+							  <div class="" id="button-addon4">
+								  <button onclick="searchJob()" class="btn btn-primary btn-sm shadow" type="button" style="margin-left: 15px; margin-top: 5px">搜索</button>
+								  <button id="delete" class="btn btn-danger btn-sm shadow" type="button" style="margin-top: 5px">删除</button>
+							  </div>
+						  </div>
 					  </tr>
 					</table>
 				
@@ -164,7 +190,7 @@ xmlns="http://www.w3.org/1999/xhtml">
 					  <td th:text="${job.job_remark}"></td>
 					  
 					 <td align="center" width="40px;"><a th:href="'showUpdateJob.html?job_id=' + ${job.job_id}">
-							<img title="修改" src="../images/update.gif"></a>
+							<img title="修改" src="../images/update.png"></a>
 					  </td>
 					   
 				</tr>

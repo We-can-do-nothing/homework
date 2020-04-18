@@ -108,15 +108,15 @@
                 $.ligerDialog.error(msg);
                 return false;
             } else {
-                var employeeMessages = "?name=" + $("#name").val()+ "&crad_id=" + $("#cardId").val()+ "&edu=" + $("#education").val()+ "&email=" + $("#email").val()+ "&phone=" + $("#phone").val()+ "&tel=" + $("#tel").val()+ "&party=" + $("#party").val()+ "&qq=" + $("#qqNum").val()+ "&address=" +
-                    $("#address").val()+ "&post_code=" + $("#postCode").val()+ "&bir=" + $("#birthday").val()+ "&race=" + $("#race").val()+ "&spe=" + $("#speciality").val()+ "&hobby=" + $("#hobby").val()+ "&depart_id=" +
-                    $("#dept_id").val()+ "&job_id=" + $("#job_id").val()+ "&sex=" + $("#sex").val()+ "&remark=" + $("#remark").val() + "&user_id=" + $("#user_id").val();
+                var employeeMessages = "?name=" + $("#name").val() + "&crad_id=" + $("#cardId").val() + "&edu=" + $("#education").val() + "&email=" + $("#email").val() + "&phone=" + $("#phone").val() + "&tel=" + $("#tel").val() + "&party=" + $("#party").val() + "&qq=" + $("#qqNum").val() + "&address=" +
+                    $("#address").val() + "&post_code=" + $("#postCode").val() + "&bir=" + $("#birthday").val() + "&race=" + $("#race").val() + "&spe=" + $("#speciality").val() + "&hobby=" + $("#hobby").val() + "&depart_id=" +
+                    $("#dept_id").val() + "&job_id=" + $("#job_id").val() + "&sex=" + $("#sex").val() + "&remark=" + $("#remark").val() + "&user_id=" + $("#user_id").val();
                 $.ajax({
                     type: "POST",
                     url: "/employee/employeeUpdate" + employeeMessages,
                     contentType: "application/json;charset=UTF-8",
                     error: function (XMLHttpRequest, textStatus, errorThrown) {
-                        alert("消息","出错了，请于管理员联系");
+                        alert("消息", "出错了，请于管理员联系");
                     },
                     success: function (json) {
                         $.ligerDialog.alert("修改成功");
@@ -180,7 +180,7 @@
                                                     </option>
                                                 </select>
                                             </td>
-                                            <td class="font3 fftd">职&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;位：
+                                            <td class="font3 fftd">职&nbsp;&nbsp;&nbsp;位：
                                                 <select id="job_id" name="job_id" style="width:143px;">
                                                     <option th:each="job,eStat:${jobs}"
                                                             th:selected="${job.job_id == employee.employee_job_id}?'selected'"
@@ -192,14 +192,14 @@
                                         <tr>
                                             <td class="font3 fftd">学历：<input name="education" id="education" size="20"
                                                                              th:value="${employee.employee_edu}"></td>
-                                            <td class="font3 fftd">邮&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;箱：<input
+                                            <td class="font3 fftd">邮&nbsp;&nbsp;&nbsp;箱：<input
                                                     name="email" id="email" size="20"
                                                     th:value="${employee.employee_email}"></td>
                                         </tr>
                                         <tr>
                                             <td class="font3 fftd">手机：<input name="phone" id="phone" size="20"
                                                                              th:value="${employee.employee_phone}"></td>
-                                            <td class="font3 fftd">电&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;话：<input
+                                            <td class="font3 fftd">电&nbsp;&nbsp;&nbsp;话：<input
                                                     name="tel" id="tel" size="20" th:value="${employee.employee_tel}">
                                             </td>
                                         </tr>

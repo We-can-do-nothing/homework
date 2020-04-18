@@ -9,19 +9,47 @@
     <meta http-equiv="expires" content="0"/>
     <meta http-equiv="keywords" content="keyword1,keyword2,keyword3"/>
     <meta http-equiv="description" content="This is my page"/>
-    <link href="../css/css.css" type="text/css" rel="stylesheet"/>
-    <link rel="stylesheet" type="text/css" href="../js/ligerUI/skins/Aqua/css/ligerui-dialog.css"/>
-    <link href="../js/ligerUI/skins/ligerui-icons.css" rel="stylesheet" type="text/css"/>
-    <script type="text/javascript" src="../js/jquery-1.11.0.js"></script>
-    <script type="text/javascript" src="../js/jquery-migrate-1.2.1.js"></script>
-    <script src="../js/ligerUI/js/core/base.js" type="text/javascript"></script>
-    <script src="../js/ligerUI/js/plugins/ligerDrag.js" type="text/javascript"></script>
-    <script src="../js/ligerUI/js/plugins/ligerDialog.js" type="text/javascript"></script>
-    <script src="../js/ligerUI/js/plugins/ligerResizable.js" type="text/javascript"></script>
-    <link href="../css/pager.css" type="text/css" rel="stylesheet"/>
-<!--    <script language="javascript" type="text/javascript" src="../js/My97DatePicker/WdatePicker.js"></script>-->
-    <script type="text/javascript">
+    <link th:href="@{../css/css.css}" type="text/css" rel="stylesheet"/>
+    <link rel="stylesheet" type="text/css" th:href="@{../js/ligerUI/skins/Aqua/css/ligerui-dialog.css}"/>
+    <link th:href="@{../js/ligerUI/skins/ligerui-icons.css}" rel="stylesheet" type="text/css"/>
+    <link rel="stylesheet" href="https://cdn.staticfile.org/twitter-bootstrap/4.3.1/css/bootstrap.min.css">
+    <script src="https://cdn.staticfile.org/jquery/3.2.1/jquery.min.js"></script>
+    <script src="https://cdn.staticfile.org/popper.js/1.15.0/umd/popper.min.js"></script>
+    <script src="https://cdn.staticfile.org/twitter-bootstrap/4.3.1/js/bootstrap.min.js"></script>
+    <link th:href="@{../css/css.css}" href="../css/css.css" type="text/css" rel="stylesheet"/>
+    <link th:href="@{../css/pager.css}" href="../css/pager.css" type="text/css" rel="stylesheet"/>
+    <script type="text/javascript" th:src="@{../js/jquery-1.11.0.js}" src="../js/jquery-1.11.0.js"></script>
+    <script type="text/javascript" th:src="@{../js/jquery-migrate-1.2.1.js}"
+            src="../js/jquery-migrate-1.2.1.js"></script>
+    <link th:href="@{../js/ligerUI/skins/Aqua/css/ligerui-dialog.css}"
+          href="../js/ligerUI/skins/Aqua/css/ligerui-dialog.css" rel="stylesheet" type="text/css"/>
+    <script th:src="@{../js/ligerUI/js/core/base.js}" src="../js/ligerUI/js/core/base.js"
+            type="text/javascript"></script>
+    <script th:src="@{../js/ligerUI/js/plugins/ligerDialog.js}" src="../js/ligerUI/js/plugins/ligerDialog.js"
+            type="text/javascript"></script>
+    <script th:src="@{../js/ligerUI/js/plugins/ligerDrag.js}" src="../js/ligerUI/js/plugins/ligerDrag.js"
+            type="text/javascript"></script>
+    <script th:src="@{../js/ligerUI/js/plugins/ligerResizable.js}" src="../js/ligerUI/js/plugins/ligerResizable.js"
+            type="text/javascript"></script>
+    <script th:inline="javascript">
 
+        function reset() {
+            $("#name").val("");
+            $("#cardId").val("");
+            $("#education").val("");
+            $("#email").val("");
+            $("#tel").val("");
+            $("#party").val("");
+            $("#qqNum").val("");
+            $("#postCode").val("");
+            $("#birthday").val("");
+            $("#race").val("");
+            $("#speciality").val("");
+            $("#hobby").val("");
+            $("#hobby").val("");
+            $.ligerDialog.alert("输入框已清空！");
+
+        }
 
         function submit() {
             var name = $("#name");
@@ -114,15 +142,15 @@
                 // Integer depart_id, Integer job_id, String name, String crad_id, String address,
                 //     String post_code, String tel, String phone, String qq, String email, Integer sex, String party, Date bir,
                 //     String race, String edu, String spe, String hobby, String remark
-                var employeeMessages = "?name=" + $("#name").val()+ "&crad_id=" + $("#cardId").val()+ "&edu=" + $("#education").val()+ "&email=" + $("#email").val()+ "&phone=" + $("#phone").val()+ "&tel=" + $("#tel").val()+ "&party=" + $("#party").val()+ "&qq=" + $("#qqNum").val()+ "&address=" +
-                    $("#address").val()+ "&post_code=" + $("#postCode").val()+ "&bir=" + $("#birthday").val()+ "&race=" + $("#race").val()+ "&spe=" + $("#speciality").val()+ "&hobby=" + $("#hobby").val()+ "&depart_id=" +
-                    $("#dept_id").val()+ "&job_id=" + $("#job_id").val()+ "&sex=" + $("#sex").val()+ "&remark=" + $("#remark").val();
+                var employeeMessages = "?name=" + $("#name").val() + "&crad_id=" + $("#cardId").val() + "&edu=" + $("#education").val() + "&email=" + $("#email").val() + "&phone=" + $("#phone").val() + "&tel=" + $("#tel").val() + "&party=" + $("#party").val() + "&qq=" + $("#qqNum").val() + "&address=" +
+                    $("#address").val() + "&post_code=" + $("#postCode").val() + "&bir=" + $("#birthday").val() + "&race=" + $("#race").val() + "&spe=" + $("#speciality").val() + "&hobby=" + $("#hobby").val() + "&depart_id=" +
+                    $("#dept_id").val() + "&job_id=" + $("#job_id").val() + "&sex=" + $("#sex").val() + "&remark=" + $("#remark").val();
                 $.ajax({
                     type: "POST",
                     url: "/employee/employeeAdd" + employeeMessages,
                     contentType: "application/json;charset=UTF-8",
                     error: function (XMLHttpRequest, textStatus, errorThrown) {
-                        alert("消息","出错了，请于管理员联系");
+                        $.ligerDialog.error("该职员已添加或未入职");
                     },
                     success: function (json) {
                         $.ligerDialog.alert("添加成功");
@@ -140,9 +168,17 @@
         <td height="10"></td>
     </tr>
     <tr>
-        <td width="15" height="32"><img src="../images/main_locleft.gif" width="15" height="32"></td>
-        <td class="main_locbg font2"><img src="../images/pointer.gif">&nbsp;&nbsp;&nbsp;当前位置：员工管理 &gt; 添加员工</td>
-        <td width="15" height="32"><img src="../images/main_locright.gif" width="15" height="32"></td>
+        <td width="15" height="32"></td>
+        <td class="">
+            <div class="form-horizontal">
+                <span><img src="../images/current_pos.png"></span>
+                <span class="font-weight-bolde">当前位置:</span>
+                <span class="badge badge-pill badge-dark">员工管理</span>
+                <span class="font-weight-bolde"> > </span>
+                <span class="badge badge-pill badge-secondary">添加员工</span>
+            </div>
+        </td>
+        <td width="15" height="32"></td>
     </tr>
 </table>
 
@@ -160,103 +196,198 @@
                         <table>
                             <tbody>
                             <tr>
-                                <td class="font3 fftd">姓名：<input type="text" name="name" id="name" size="20"></td>
-                                <td class="font3 fftd">身份证号码：<input type="text" name="cardId" id="cardId" size="20">
-                                </td>
+                                <!--                                <td class="font3 fftd">姓名：<input type="text" name="name" id="name" size="20"></td>-->
+                                <div class="input-group input-group-sm mb-3"
+                                     style="margin-left: 500px;margin-right: 250px;width: 600px">
+                                    <div class="input-group-prepend">
+                                        <span class="input-group-text shadow" id="inputGroup-sizing-sm1">姓名</span>
+                                    </div>
+                                    <input type="text" name="name" id="name" class="form-control shadow"
+                                           aria-label="Sizing example input" aria-describedby="inputGroup-sizing-sm">
+                                    <div class="input-group-prepend" style="margin-left: 20px">
+                                        <span class="input-group-text shadow" id="inputGroup-sizing-sm2">身份证号码</span>
+                                    </div>
+                                    <input type="text" name="cardId" id="cardId" class="form-control shadow"
+                                           aria-label="Sizing example input" aria-describedby="inputGroup-sizing-sm">
+                                </div>
                             </tr>
                             <tr>
-                                <td class="font3 fftd">性别：
-                                    <select name="sex" id="sex" style="width:143px;">
+                                <div class="input-group input-group-sm mb-3"
+                                     style="margin-left: 500px;margin-right: 250px;width: 600px">
+                                    <div class="input-group-prepend" style="margin-right: 2px">
+                                        <span class="input-group-text shadow" id="inputGroup-sizing-sm3">性&nbsp;别</span>
+                                    </div>
+                                    <select name="sex" id="sex" class="input-group-text shadow">
+                                        <option value="0">--选择性别--</option>
                                         <option value="1">男</option>
                                         <option value="2">女</option>
-                                    </select></td>
-                                <td class="font3 fftd">职&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;位：
-                                    <select name="job_id" id="job_id" style="width:143px;">
-
-                                        <option th:each="job,eStat:${jobs}" th:value="${job.job_id}" th:text="${job.job_name}" ></option>
-
                                     </select>
-                                </td>
+                                    <div class="input-group-prepend" style="margin-right: 2px;margin-left: 30px">
+                                        <span class="input-group-text shadow" id="inputGroup-sizing-sm4">职&nbsp;位</span>
+                                    </div>
+                                    <select name="job_id" id="job_id" class="input-group-text shadow">
+                                        <option th:each="job,eStat:${jobs}" th:value="${job.job_id}"
+                                                th:text="${job.job_name}"></option>
+                                    </select>
+                                </div>
                             </tr>
                             <tr>
-                                <td class="font3 fftd">学历：<input name="education" id="education" size="20"></td>
-                                <td class="font3 fftd">邮&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;箱：<input name="email"
-                                                                                                     id="email"
-                                                                                                     size="20"></td>
+                                <div class="input-group input-group-sm mb-3"
+                                     style="margin-left: 500px;margin-right: 250px;width: 600px">
+                                    <div class="input-group-prepend">
+                                        <span class="input-group-text shadow" id="inputGroup-sizing-sm5">学&nbsp;历</span>
+                                    </div>
+                                    <input type="text" name="education" id="education" class="form-control shadow"
+                                           aria-label="Sizing example input" aria-describedby="inputGroup-sizing-sm">
+                                    <div class="input-group-prepend" style="margin-left: 20px">
+                                        <span class="input-group-text shadow" id="inputGroup-sizing-sm6">邮&nbsp;箱</span>
+                                    </div>
+                                    <input type="text" name="email" id="email" class="form-control shadow"
+                                           aria-label="Sizing example input" aria-describedby="inputGroup-sizing-sm">
+                                </div>
                             </tr>
                             <tr>
-                                <td class="font3 fftd">手机：<input name="phone" id="phone" size="20"></td>
-                                <td class="font3 fftd">电&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;话：<input name="tel" id="tel"
-                                                                                                     size="20"></td>
+                                <div class="input-group input-group-sm mb-3"
+                                     style="margin-left: 500px;margin-right: 250px;width: 600px">
+                                    <div class="input-group-prepend">
+                                        <span class="input-group-text shadow" id="inputGroup-sizing-sm7">手&nbsp;机</span>
+                                    </div>
+                                    <input type="text" name="phone" id="phone" class="form-control shadow"
+                                           aria-label="Sizing example input" aria-describedby="inputGroup-sizing-sm">
+                                    <div class="input-group-prepend" style="margin-left: 20px">
+                                        <span class="input-group-text shadow" id="inputGroup-sizing-sm8">固定电话</span>
+                                    </div>
+                                    <input type="text" name="tel" id="tel" class="form-control shadow"
+                                           aria-label="Sizing example input" aria-describedby="inputGroup-sizing-sm">
+                                </div>
+                            </tr>
+                            <tr>
+                                <div class="input-group input-group-sm mb-3"
+                                     style="margin-left: 500px;margin-right: 250px;width: 600px">
+                                    <div class="input-group-prepend">
+                                        <span class="input-group-text shadow" id="inputGroup-sizing-sm9">政治面貌</span>
+                                    </div>
+                                    <input type="text" name="party" id="party" class="form-control shadow"
+                                           aria-label="Sizing example input" aria-describedby="inputGroup-sizing-sm">
+                                    <div class="input-group-prepend" style="margin-left: 20px">
+                                        <span class="input-group-text shadow" id="inputGroup-sizing-sm10">QQ 号码</span>
+                                    </div>
+                                    <input type="text" name="qqNum" id="qqNum" class="form-control shadow"
+                                           aria-label="Sizing example input" aria-describedby="inputGroup-sizing-sm">
+                                </div>
+                            </tr>
+                            <tr>
+                                <div class="input-group input-group-sm mb-3"
+                                     style="margin-left: 500px;margin-right: 250px;width: 600px">
+                                    <div class="input-group-prepend">
+                                        <span class="input-group-text shadow" id="inputGroup-sizing-sm11">联系地址</span>
+                                    </div>
+                                    <input type="text" name="address" id="address" class="form-control shadow"
+                                           aria-label="Sizing example input" aria-describedby="inputGroup-sizing-sm">
+                                    <div class="input-group-prepend" style="margin-left: 20px">
+                                        <span class="input-group-text shadow" id="inputGroup-sizing-sm12">邮政编码</span>
+                                    </div>
+                                    <input type="text" name="postCode" id="postCode" class="form-control shadow"
+                                           aria-label="Sizing example input" aria-describedby="inputGroup-sizing-sm">
+                                </div>
+                            </tr>
+                            <tr>
+                                <div class="input-group input-group-sm mb-3"
+                                     style="margin-left: 500px;margin-right: 250px;width: 600px">
+                                    <div class="input-group-prepend" style="margin-right: 2px">
+                                        <span class="input-group-text shadow" id="inputGroup-sizing-sm13">出生日期</span>
+                                    </div>
+                                    <input cssclass="Wdate" type="date"
+                                           name="birthday" id="birthday" size="40">&nbsp;&nbsp;
+                                    <div class="input-group-prepend" style="margin-right: 2px;margin-left: 30px">
+                                        <span class="input-group-text shadow" id="inputGroup-sizing-sm14">所属部门</span>
+                                    </div>
+                                    <select name="dept_id" id="dept_id" class="input-group-text shadow">
+                                        <option th:each="department,eStat:${departments}"
+                                                th:value="${department.depart_id}"
+                                                th:text="${department.depart_name}"></option>
+                                    </select>
+                                </div>
+                            </tr>
+                            <tr>
+                                <div class="input-group input-group-sm mb-3"
+                                     style="margin-left: 500px;margin-right: 250px;width: 600px">
+                                    <div class="input-group-prepend">
+                                        <span class="input-group-text shadow" id="inputGroup-sizing-sm15">民族</span>
+                                    </div>
+                                    <input type="text" name="race" id="race" class="form-control shadow"
+                                           aria-label="Sizing example input" aria-describedby="inputGroup-sizing-sm">
+                                    <div class="input-group-prepend" style="margin-left: 20px">
+                                        <span class="input-group-text shadow" id="inputGroup-sizing-sm16">专业</span>
+                                    </div>
+                                    <input type="text" name="speciality" id="speciality" class="form-control shadow"
+                                           aria-label="Sizing example input" aria-describedby="inputGroup-sizing-sm">
+                                </div>
+                            </tr>
+                            <tr>
+                                <div class="input-group input-group-sm mb-3"
+                                     style="margin-left: 500px;margin-right: 250px;width: 600px">
+                                    <div class="input-group-prepend">
+                                        <span class="input-group-text shadow" id="inputGroup-sizing-sm17">爱好</span>
+                                    </div>
+                                    <input type="text" name="hobby" id="hobby" class="form-control shadow"
+                                           aria-label="Sizing example input" aria-describedby="inputGroup-sizing-sm">
+                                    <div class="input-group-prepend" style="margin-left: 20px">
+                                        <span class="input-group-text shadow" id="inputGroup-sizing-sm18">备注</span>
+                                    </div>
+                                    <input type="text" name="remark" id="remark" class="form-control shadow"
+                                           aria-label="Sizing example input" aria-describedby="inputGroup-sizing-sm">
+                                </div>
                             </tr>
 
                             </tbody>
                         </table>
                     </td>
                 </tr>
-                <tr>
-                    <td class="main_tdbor"></td>
-                </tr>
+
+
+                <!--                <tr>-->
+                <!--                    <td class="font3 fftd">-->
+                <!--                        出生日期：<input cssclass="Wdate" type="date"-->
+                <!--                                    name="birthday" id="birthday" size="40">&nbsp;&nbsp;-->
+                <!--                        民&nbsp;&nbsp;&nbsp;&nbsp;族：<input name="race" id="race" size="20">-->
+                <!--                    </td>-->
+                <!--                </tr>-->
+                <!--                <tr>-->
+                <!--                    <td class="main_tdbor"></td>-->
+                <!--                </tr>-->
+
+                <!--                <tr>-->
+                <!--                    <td class="font3 fftd">-->
+                <!--                        所学专业：<input name="speciality" id="speciality" size="40">&nbsp;&nbsp;-->
+                <!--                        爱&nbsp;&nbsp;&nbsp;&nbsp;好：<input name="hobby" id="hobby" size="20">-->
+                <!--                    </td>-->
+                <!--                </tr>-->
+                <!--                <tr>-->
+                <!--                    <td class="main_tdbor"></td>-->
+                <!--                </tr>-->
+
+                <!--                <tr>-->
+                <!--                    <td class="font3 fftd">-->
+                <!--                        备&nbsp;&nbsp;&nbsp;&nbsp;注：<input name="remark" id="remark" size="40">-->
+                <!--                        &nbsp;&nbsp;所属部门：-->
+                <!--                        <select name="dept_id" id="dept_id" style="width:100px;">-->
+
+                <!--                            <option th:each="department,eStat:${departments}" th:value="${department.depart_id}" th:text="${department.depart_name}" ></option>-->
+
+                <!--                        </select>-->
+                <!--                    </td>-->
+                <!--                </tr>-->
+                <!--                <tr>-->
+                <!--                    <td class="main_tdbor"></td>-->
+                <!--                </tr>-->
 
                 <tr>
-                    <td class="font3 fftd">
-                        政治面貌：<input name="party" id="party" size="40">&nbsp;&nbsp;
-                        QQ&nbsp;&nbsp;号码：<input name="qqNum" id="qqNum" size="20">
-                    </td>
-                </tr>
-                <tr>
-                    <td class="main_tdbor"></td>
-                </tr>
-
-                <tr>
-                    <td class="font3 fftd">
-                        联系地址：<input name="address" id="address" size="40">&nbsp;&nbsp;
-                        邮政编码：<input name="postCode" id="postCode" size="20">
-                    </td>
-                </tr>
-                <tr>
-                    <td class="main_tdbor"></td>
-                </tr>
-
-                <tr>
-                    <td class="font3 fftd">
-                        出生日期：<input cssclass="Wdate" type="date"
-                                    name="birthday" id="birthday" size="40">&nbsp;&nbsp;
-                        民&nbsp;&nbsp;&nbsp;&nbsp;族：<input name="race" id="race" size="20">
-                    </td>
-                </tr>
-                <tr>
-                    <td class="main_tdbor"></td>
-                </tr>
-
-                <tr>
-                    <td class="font3 fftd">
-                        所学专业：<input name="speciality" id="speciality" size="40">&nbsp;&nbsp;
-                        爱&nbsp;&nbsp;&nbsp;&nbsp;好：<input name="hobby" id="hobby" size="20">
-                    </td>
-                </tr>
-                <tr>
-                    <td class="main_tdbor"></td>
-                </tr>
-
-                <tr>
-                    <td class="font3 fftd">
-                        备&nbsp;&nbsp;&nbsp;&nbsp;注：<input name="remark" id="remark" size="40">
-                        &nbsp;&nbsp;所属部门：
-                        <select name="dept_id" id="dept_id" style="width:100px;">
-
-                            <option th:each="department,eStat:${departments}" th:value="${department.depart_id}" th:text="${department.depart_name}" ></option>
-
-                        </select>
-                    </td>
-                </tr>
-                <tr>
-                    <td class="main_tdbor"></td>
-                </tr>
-
-                <tr>
-                    <td align="left" class="fftd">
-                        <input type="button" onclick="submit()" value="添加">&nbsp;&nbsp;<input type="reset" value="取消 ">
+                    <td align="center" class="fftd">
+                        <!--                        <input type="button" onclick="submit()" value="添加">&nbsp;&nbsp;-->
+                        <!--                        <input type="reset" value="取消 ">-->
+                        <button type="button" onclick="submit()" class="btn btn-success btn-sm shadow">添加</button>&nbsp;&nbsp;
+                        <button type="reset" onclick="reset()" class="btn btn-info btn-sm shadow">重置</button>
                     </td>
                 </tr>
                 </tbody>

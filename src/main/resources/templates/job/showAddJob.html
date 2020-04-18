@@ -1,5 +1,6 @@
 <!DOCTYPE HTML>
-<html>
+<html xmlns:th="http://www.thymeleaf.org"
+      xmlns="http://www.w3.org/1999/xhtml">
 <head>
     <title>人事管理系统——添加职位</title>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
@@ -8,17 +9,29 @@
     <meta http-equiv="expires" content="0"/>
     <meta http-equiv="keywords" content="keyword1,keyword2,keyword3"/>
     <meta http-equiv="description" content="This is my page"/>
-    <link href="../css/css.css" type="text/css" rel="stylesheet"/>
-    <link rel="stylesheet" type="text/css" href="../js/ligerUI/skins/Aqua/css/ligerui-dialog.css"/>
-    <link href="../js/ligerUI/skins/ligerui-icons.css" rel="stylesheet" type="text/css"/>
-    <script type="text/javascript" src="../js/jquery-1.11.0.js"></script>
-    <script type="text/javascript" src="../js/jquery-migrate-1.2.1.js"></script>
-    <script src="../js/ligerUI/js/core/base.js" type="text/javascript"></script>
-    <script src="../js/ligerUI/js/plugins/ligerDrag.js" type="text/javascript"></script>
-    <script src="../js/ligerUI/js/plugins/ligerDialog.js" type="text/javascript"></script>
-    <script src="../js/ligerUI/js/plugins/ligerResizable.js" type="text/javascript"></script>
-    <link href="../css/pager.css" type="text/css" rel="stylesheet"/>
-    <script type="text/javascript">
+    <link th:href="@{../css/css.css}" type="text/css" rel="stylesheet"/>
+    <link rel="stylesheet" type="text/css" th:href="@{../js/ligerUI/skins/Aqua/css/ligerui-dialog.css}"/>
+    <link th:href="@{../js/ligerUI/skins/ligerui-icons.css}" rel="stylesheet" type="text/css"/>
+    <link rel="stylesheet" href="https://cdn.staticfile.org/twitter-bootstrap/4.3.1/css/bootstrap.min.css">
+    <script src="https://cdn.staticfile.org/jquery/3.2.1/jquery.min.js"></script>
+    <script src="https://cdn.staticfile.org/popper.js/1.15.0/umd/popper.min.js"></script>
+    <script src="https://cdn.staticfile.org/twitter-bootstrap/4.3.1/js/bootstrap.min.js"></script>
+    <link th:href="@{../css/css.css}" href="../css/css.css" type="text/css" rel="stylesheet"/>
+    <link th:href="@{../css/pager.css}" href="../css/pager.css" type="text/css" rel="stylesheet"/>
+    <script type="text/javascript" th:src="@{../js/jquery-1.11.0.js}" src="../js/jquery-1.11.0.js"></script>
+    <script type="text/javascript" th:src="@{../js/jquery-migrate-1.2.1.js}"
+            src="../js/jquery-migrate-1.2.1.js"></script>
+    <link th:href="@{../js/ligerUI/skins/Aqua/css/ligerui-dialog.css}"
+          href="../js/ligerUI/skins/Aqua/css/ligerui-dialog.css" rel="stylesheet" type="text/css"/>
+    <script th:src="@{../js/ligerUI/js/core/base.js}" src="../js/ligerUI/js/core/base.js"
+            type="text/javascript"></script>
+    <script th:src="@{../js/ligerUI/js/plugins/ligerDialog.js}" src="../js/ligerUI/js/plugins/ligerDialog.js"
+            type="text/javascript"></script>
+    <script th:src="@{../js/ligerUI/js/plugins/ligerDrag.js}" src="../js/ligerUI/js/plugins/ligerDrag.js"
+            type="text/javascript"></script>
+    <script th:src="@{../js/ligerUI/js/plugins/ligerResizable.js}" src="../js/ligerUI/js/plugins/ligerResizable.js"
+            type="text/javascript"></script>
+    <script th:inline="javascript">
         function submit() {
 
             var name = $("#name");
@@ -49,6 +62,12 @@
             }
         }
 
+        function reset() {
+            $("#name").val("");
+            $("#remark").val("");
+            $.ligerDialog.alert("输入框已清空！");
+        }
+
 
     </script>
 </head>
@@ -58,9 +77,17 @@
         <td height="10"></td>
     </tr>
     <tr>
-        <td width="15" height="32"><img src="../images/main_locleft.gif" width="15" height="32"></td>
-        <td class="main_locbg font2"><img src="../images/pointer.gif">&nbsp;&nbsp;&nbsp;当前位置：职位管理 &gt; 添加职位</td>
-        <td width="15" height="32"><img src="../images/main_locright.gif" width="15" height="32"></td>
+        <td width="15" height="32"></td>
+        <td class="">
+            <div class="form-horizontal">
+                <span><img src="../images/current_pos.png"></span>
+                <span class="font-weight-bolde">当前位置:</span>
+                <span class="badge badge-pill badge-dark">职位管理</span>
+                <span class="font-weight-bolde"> > </span>
+                <span class="badge badge-pill badge-secondary">添加职位</span>
+            </div>
+        </td>
+        <td width="15" height="32"></td>
     </tr>
 </table>
 <table width="100%" height="90%" border="0" cellpadding="5" cellspacing="0" class="main_tabbor">
@@ -74,8 +101,20 @@
                     <td class="font3 fftd">
                         <table>
                             <tr>
-                                <td class="font3 fftd">职位名称：<input type="text" name="name" id="name" size="20"/></td>
-                                <td class="font3 fftd">详细描述：<input type="text" name="remark" id="remark" size="20"/>
+                                <div class="input-group input-group-sm mb-3 w-25" style="margin-left: 600px;margin-right: 250px">
+                                    <div class="input-group-prepend">
+                                        <span class="input-group-text shadow" id="inputGroup-sizing-sm1">职位名称：</span>
+                                    </div>
+                                    <input type="text" name="name" id="name" class="form-control shadow" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-sm">
+                                </div>
+<!--                                <td class="font3 fftd">职位名称：<input type="text" name="name" id="name" size="20"/></td>-->
+                                <div class="input-group input-group-sm mb-3 w-25" style="margin-left: 600px;margin-right: 250px">
+                                    <div class="input-group-prepend">
+                                        <span class="input-group-text shadow" id="inputGroup-sizing-sm2">详细描述：</span>
+                                    </div>
+                                    <input type="text" name="remark" id="remark" class="form-control shadow" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-sm">
+                                </div>
+<!--                                <td class="font3 fftd">详细描述：<input type="text" name="remark" id="remark" size="20"/>-->
                                 </td>
                             </tr>
 
@@ -87,8 +126,12 @@
                 </tr>
 
                 <tr>
-                    <td align="left" class="fftd"><input type="button" onclick="submit()" value="添加 ">&nbsp;&nbsp;<input
-                            type="reset" value="取消 "></td>
+                    <td align="center" class="fftd">
+<!--                        <input type="button" onclick="submit()" value="添加 ">&nbsp;&nbsp;-->
+<!--                        <input type="reset" value="取消 ">-->
+                        <button type="button" onclick="submit()" class="btn btn-success btn-sm shadow">添加</button>&nbsp;&nbsp;
+                        <button type="reset" onclick="reset()" class="btn btn-info btn-sm shadow">取消</button>
+                    </td>
                 </tr>
             </table>
 

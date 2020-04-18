@@ -17,6 +17,7 @@ import javax.servlet.http.Cookie;
 import javax.servlet.http.HttpServletRequest;
 import java.util.Base64;
 import java.util.HashMap;
+import java.util.Map;
 
 @Controller
 public class mainControl {
@@ -50,12 +51,18 @@ public class mainControl {
 //    人脸注册
     @RequestMapping(value="/user/faceRegister", method = RequestMethod.POST)
     @ResponseBody
-    public Object faceRegister(@RequestBody String img, HttpServletRequest request){
+    public Object faceRegister(@RequestBody Map<String, Object> params, HttpServletRequest request){
+        String base = (String) params.get("base");
         String cookieLoginName = utils.searchCookie(request, "LoginName");
         User user = loginService.findByName(cookieLoginName);
         // 人脸注册一定能找到user（已经登陆）,故不用判断，如果出错，那就是服务器挂了，错误最好不要捕捉
         faceServiceInterface service = new faceService();
-        return service.faceRegister(img, user.getUser_id());
+        Map<String,Object> map = new HashMap<>();
+        if(service.faceRegister(base, user.getUser_id()))
+            map.put("success",true);
+        else
+            map.put("success",false);
+        return map;
     }
 
     // 修改密码

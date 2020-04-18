@@ -152,19 +152,20 @@ h1 {
   				//把流媒体数据画到convas画布上去
   				context.drawImage(video,0,0,530,300);
   				var base = getBase64();
-  
-  				
   				$.ajax({
   					type:"post",
   					url:"/user/faceRegister",
-  					data:base,
-  					dataType: "json",
+					data: JSON.stringify({base:base}),
 					contentType: "application/json;charset=UTF-8",
+					dataType: "json",
+					error: function (XMLHttpRequest, textStatus, errorThrown) {
+						$.MsgBox.Alert("消息","服务器出错");
+					},
   					success:function(json){
-						if(json=0){
-							$.MsgBox.Alert("消息","注册失败");
-						}else{
-							$.MsgBox.Alert("消息","注册成功");
+						if (json.success) {
+							$.MsgBox.Alert("消息", "注册成功");
+						} else {
+							$.MsgBox.Alert("消息", "注册失败");
 						}
 					}
 				});
