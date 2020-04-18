@@ -14,6 +14,7 @@ import org.springframework.web.servlet.ModelAndView;
 import java.util.Date;
 import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 @Controller
 public class employeeControl {
@@ -162,13 +163,30 @@ public class employeeControl {
     }
 
     @GetMapping("employee/showUpdateEmployee.html")
-    String showUpdateEmployee(ModelMap map, Integer user_id) {
+    String showUpdateEmployee(ModelMap map1, Integer user_id) {
         List<Job> jobs = employeeService.selectJob();
         List<department> departments = employeeService.selectDept();
-        map.addAttribute("jobs", jobs);
-        map.addAttribute("departments", departments);
+        map1.addAttribute("jobs", jobs);
+        map1.addAttribute("departments", departments);
         employee employee1 = employeeService.selectById(user_id);
-        map.addAttribute("employee", employee1);
+        Map<String, String > map = new HashMap<>();
+        map.put("Jan", "01");
+        map.put("Feb", "02");
+        map.put("Mar", "03");
+        map.put("Apr", "04");
+        map.put("May", "05");
+        map.put("Jun", "06");
+        map.put("Jul", "07");
+        map.put("Aug", "08");
+        map.put("Sep", "09");
+        map.put("Oct", "10");
+        map.put("Nov", "11");
+        map.put("Dec", "12");
+        String str = employee1.getEmployee_bir().toString();
+        String[] strs = str.split(" ");
+        String newStr = strs[5] + "-" + map.get(strs[1]) + "-" + strs[2];
+        map1.addAttribute("birthday", newStr);
+        map1.addAttribute("employee", employee1);
         return "employee/showUpdateEmployee";
     }
 
